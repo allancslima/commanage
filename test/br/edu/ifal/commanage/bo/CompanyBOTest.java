@@ -57,7 +57,7 @@ public class CompanyBOTest extends TestCase {
 	@Test
 	public void testShouldNotValidateSetCompanyPhone() throws Exception {
 		try {
-			companyBO.validateSetCompanyPhone("999999999");
+			companyBO.validateSetCompanyPhone("82999999999");
 			assertEquals("", companyBO.getPhone());
 		} catch(Exception e) {
 			assertEquals("Invalid phone", e.getMessage());
@@ -67,8 +67,8 @@ public class CompanyBOTest extends TestCase {
 	@Test
 	public void testShouldValidateSetCompanyPhone() throws Exception {
 		try {
-			companyBO.validateSetCompanyPhone("99999-9999");
-			assertEquals("99999-9999", companyBO.getPhone());
+			companyBO.validateSetCompanyPhone("(82)99999-9999");
+			assertEquals("(82)99999-9999", companyBO.getPhone());
 		} catch(Exception e) {
 			assertEquals("", e.getMessage());
 		}

@@ -1,6 +1,7 @@
 package br.edu.ifal.commanage.bo;
 
 import br.edu.ifal.commanage.model.Company;
+import br.edu.ifal.commanage.util.FieldValidation;
 
 public class CompanyBO {
 	
@@ -15,12 +16,10 @@ public class CompanyBO {
 	}
 	
 	public void validateSetCompanyName(String name) throws Exception {
-		String pattern = "[A-Z][a-z]{1,}";
-		if (name.matches(pattern)) {
+		if (FieldValidation.isValidName(name))
 			company.setName(name);
-		} else {
+		else
 			throw new Exception("Invalid name");
-		}
 	}
 	
 	public String getCnpj() {
@@ -28,12 +27,10 @@ public class CompanyBO {
 	}
 	
 	public void validateSetCompanyCnpj(String cnpj) throws Exception {
-		String pattern = "[0-9]{2}[.][0-9]{3}[.][0-9]{3}[/][0-9]{4}[.][0-9]{2}";
-		if (cnpj.matches(pattern)) {
+		if (FieldValidation.isValidCnpj(cnpj))
 			company.setCnpj(cnpj);
-		} else {
+		else
 			throw new Exception("Invalid cnpj");
-		}
 	}
 	
 	public String getPhone() {
@@ -41,11 +38,9 @@ public class CompanyBO {
 	}
 	
 	public void validateSetCompanyPhone(String phone) throws Exception {
-		String pattern = "[0-9]{5}[-][0-9]{4}";
-		if (phone.matches(pattern)) {
+		if (FieldValidation.isValidPhone(phone))
 			company.setPhone(phone);
-		} else {
+		else
 			throw new Exception("Invalid phone");
-		}
 	}
 }
