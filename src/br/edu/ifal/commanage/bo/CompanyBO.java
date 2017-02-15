@@ -8,52 +8,51 @@ public class CompanyBO {
 	
 	private Company company;
 	
-	public CompanyBO(Company company) {
+	public CompanyBO (Company company) {
 		this.company = company;
 	}
 	
-	public String getName() {
+	public String getName () {
 		return company.getName();
 	}
 	
-	public void validateSetCompanyName(String name) throws Exception {
+	public void validateSetCompanyName (String name) throws Exception {
 		if (FieldValidation.isValidName(name))
 			company.setName(name);
 		else
 			throw new Exception("Invalid name");
 	}
 	
-	public String getCnpj() {
+	public String getCnpj () {
 		return company.getCnpj();
 	}
 	
-	public void validateSetCompanyCnpj(String cnpj) throws Exception {
+	public void validateSetCompanyCnpj (String cnpj) throws Exception {
 		if (FieldValidation.isValidCnpj(cnpj))
 			company.setCnpj(cnpj);
 		else
 			throw new Exception("Invalid cnpj");
 	}
 	
-	public String getPhone() {
+	public String getPhone () {
 		return company.getPhone();
 	}
 	
-	public void validateSetCompanyPhone(String phone) throws Exception {
+	public void validateSetCompanyPhone (String phone) throws Exception {
 		if (FieldValidation.isValidPhone(phone))
 			company.setPhone(phone);
 		else
 			throw new Exception("Invalid phone");
 	}
 	
-	public void validateAddProduct(Product product) throws Exception {
-		if(product.getBuyprice()>0 && product.getSellprice()>0){
+	public void validateAddProduct (Product product) throws Exception {
+		if (product.getSellPrice() > 0 && product.getBuyPrice() > 0)
 			company.addProduct(product);
-		} else {
+		else
 			throw new Exception("Invalid product");
-		}
 	}
 	
-	public boolean removeProduct(Product product){
+	public boolean removeProduct (Product product) {
 		return company.removeProduct(product);
 	}
 }

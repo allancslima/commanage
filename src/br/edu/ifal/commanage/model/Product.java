@@ -3,36 +3,36 @@ package br.edu.ifal.commanage.model;
 public class Product {
 	
 	private String name;
-	private double sellprice;
-	private double buyprice;
+	private double sellPrice;
+	private double buyPrice;
 
-	public Product(String name, double sellprice, double buyprice) {
+	public Product (String name, double sellprice, double buyprice) {
 		this.name = name;
-		this.sellprice = sellprice;
-		this.buyprice = buyprice;
+		this.sellPrice = sellprice;
+		this.buyPrice = buyprice;
 	}
 	
-	public String getName() {
+	public String getName () {
 		return name;	
 	}
 	
-	public void setName(String name) {
+	public void setName (String name) {
 		this.name = name;
 	}
 	
-	public double getSellprice() {
-		return sellprice;
+	public double getSellPrice () {
+		return sellPrice;
 	}
 	
-	public void setSellprice(double sellprice) {
-		this.sellprice = sellprice;
+	public void setSellPrice (double sellPrice) {
+		this.sellPrice = sellPrice;
 	}
 	
-	public double getBuyprice() {
-		return buyprice;
+	public double getBuyPrice () {
+		return buyPrice;
 	}
 	
-	public void setBuyprice(double buyprice) {
-		this.buyprice = buyprice;
+	public void setBuyPrice (double buyPrice) {
+		this.buyPrice = buyPrice;
 	}
 }
