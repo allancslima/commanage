@@ -1,10 +1,13 @@
 package br.edu.ifal.commanage.model;
 
+import java.util.ArrayList;
+
 public class Company {
-	
+
 	private String name;
 	private String cnpj;
 	private String phone;
+	private ArrayList<Product> products = new ArrayList<>();
 	
 	public String getName() {
 		return name;
@@ -28,5 +31,13 @@ public class Company {
 	
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	
+	public void addProduct(Product product) {
+		products.add(product);
+	}
+	
+	public boolean removeProduct(Product product) {
+		return products.remove(product);
 	}
 }

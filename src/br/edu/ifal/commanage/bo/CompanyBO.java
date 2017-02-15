@@ -1,6 +1,7 @@
 package br.edu.ifal.commanage.bo;
 
 import br.edu.ifal.commanage.model.Company;
+import br.edu.ifal.commanage.model.Product;
 import br.edu.ifal.commanage.util.FieldValidation;
 
 public class CompanyBO {
@@ -42,5 +43,17 @@ public class CompanyBO {
 			company.setPhone(phone);
 		else
 			throw new Exception("Invalid phone");
+	}
+	
+	public void validateAddProduct(Product product) throws Exception {
+		if(product.getBuyprice()>0 && product.getSellprice()>0){
+			company.addProduct(product);
+		} else {
+			throw new Exception("Invalid product");
+		}
+	}
+	
+	public boolean removeProduct(Product product){
+		return company.removeProduct(product);
 	}
 }
