@@ -4,22 +4,21 @@ public class FieldValidation {
 	
 	public static boolean isValidName (String name) {
 		String pattern = "[A-Z][a-z]{1,}";
-		if (name.matches(pattern))
-			return true;
-		return false;
+		return name.matches(pattern);
 	}
 	
 	public static boolean isValidCnpj (String cnpj) {
 		String pattern = "[0-9]{2}[.][0-9]{3}[.][0-9]{3}[/][0-9]{4}[.][0-9]{2}";
-		if (cnpj.matches(pattern))
-			return true;
-		return false;
+		return cnpj.matches(pattern);
+	}
+	
+	public static boolean isValidEmail (String email) {
+		String pattern = "[a-z|0-9|.|-]{3,}[@][a-z]{3,}[.][a-z]{2,}";
+		return email.matches(pattern);
 	}
 	
 	public static boolean isValidPhone (String phone) {
 		String pattern = "[(][0-9]{2}[)][0-9]{5}[-][0-9]{4}";
-		if (phone.matches(pattern))
-			return true;
-		return false;
+		return phone.matches(pattern);
 	}
 }
