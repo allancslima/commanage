@@ -1,6 +1,6 @@
 package br.edu.ifal.commanage.util;
 
-public final class FieldValidation {
+public class FieldValidation {
 	
 	public static boolean isValidName (String name) {
 		String pattern = "[A-Z][a-z]{1,}";
