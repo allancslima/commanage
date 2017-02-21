@@ -1,24 +1,25 @@
 package br.edu.ifal.commanage.util;
 
-public class FieldValidation {
+public final class FieldValidation {
 	
-	public static boolean isValidName (String name) {
+	public static boolean isValidName(String name) {
 		String pattern = "[A-Z][a-z]{1,}";
-		return name.matches(pattern);
+		if (name.matches(pattern))
+			return true;
+		return false;
 	}
 	
-	public static boolean isValidCnpj (String cnpj) {
+	public static boolean isValidCnpj(String cnpj) {
 		String pattern = "[0-9]{2}[.][0-9]{3}[.][0-9]{3}[/][0-9]{4}[.][0-9]{2}";
-		return cnpj.matches(pattern);
+		if (cnpj.matches(pattern))
+			return true;
+		return false;
 	}
 	
-	public static boolean isValidEmail (String email) {
-		String pattern = "[a-z|0-9|.|-]{3,}[@][a-z]{3,}[.][a-z]{2,}";
-		return email.matches(pattern);
-	}
-	
-	public static boolean isValidPhone (String phone) {
+	public static boolean isValidPhone(String phone) {
 		String pattern = "[(][0-9]{2}[)][0-9]{5}[-][0-9]{4}";
-		return phone.matches(pattern);
+		if (phone.matches(pattern))
+			return true;
+		return false;
 	}
 }
