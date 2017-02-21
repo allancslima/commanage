@@ -1,6 +1,7 @@
 package br.edu.ifal.commanage.bo;
 
 import br.edu.ifal.commanage.model.Company;
+import br.edu.ifal.commanage.model.Employee;
 import br.edu.ifal.commanage.model.Product;
 import br.edu.ifal.commanage.util.FieldValidation;
 
@@ -44,6 +45,17 @@ public class CompanyBO {
 		else
 			throw new Exception("Invalid phone");
 	}
+	
+	public void validateAddEmployee(Employee employee) throws Exception {
+		if (FieldValidation.isValidName(employee.getName()) && FieldValidation.isValidPhone(employee.getPhone()) && FieldValidation.isValidEmail(employee.getEmail()))
+		   company.addEmployee(employee);
+		else
+		  throw new Exception("Invalid employee");
+		}
+	public boolean removeEmployee(Employee employee){
+		return company.removeEmployee(employee);
+	}
+	
 	
 	public void validateAddProduct (Product product) throws Exception {
 		if (product.getSellPrice() > 0 && product.getBuyPrice() > 0)
