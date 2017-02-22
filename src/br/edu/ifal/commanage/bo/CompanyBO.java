@@ -56,6 +56,9 @@ public class CompanyBO {
 		return company.removeEmployee(employee);
 	}
 	
+	public int getEmployeeQuantity() { 
+		return company.getEmployeeQuantity(); 
+				}
 	
 	public void validateAddProduct (Product product) throws Exception {
 		if (product.getSellPrice() > 0 && product.getBuyPrice() > 0)
