@@ -70,4 +70,8 @@ public class CompanyBO {
 	public boolean removeProduct (Product product) {
 		return company.removeProduct(product);
 	}
+	
+	public int getProductQuantity(){
+		return company.getProductQuantity();
+	}
 }

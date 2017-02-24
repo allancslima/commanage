@@ -42,6 +42,10 @@ public class Company {
 		return employees.remove(employee);
 	}
 	
+	public int getEmployeeQuantity() { 
+		return employees.size();
+	}
+	
 	public void addProduct (Product product) {
 		products.add(product);
 	}
@@ -49,8 +53,8 @@ public class Company {
 	public boolean removeProduct (Product product) {
 		return products.remove(product);
 	}
-	public int getEmployeeQuantity() { 
-		return employees.size();
-			}
+	
+	public int getProductQuantity() { 
+		return products.size();
+	}
 }
-
