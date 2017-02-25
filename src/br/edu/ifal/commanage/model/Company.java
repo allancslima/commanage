@@ -9,6 +9,7 @@ public class Company {
 	private String phone;
 	private ArrayList<Employee> employees = new ArrayList<>();
 	private ArrayList<Product> products = new ArrayList<>();
+	private ProductStock productStock = new ProductStock();
 	
 	public String getName () {
 		return name;
@@ -34,6 +35,10 @@ public class Company {
 		this.phone = phone;
 	}
 	
+	public int getEmployeeQuantity () { 
+		return employees.size();
+	}
+	
 	public void addEmployee (Employee employee) {
 		employees.add(employee);
 	}
@@ -42,8 +47,8 @@ public class Company {
 		return employees.remove(employee);
 	}
 	
-	public int getEmployeeQuantity() { 
-		return employees.size();
+	public int getProductQuantity () { 
+		return products.size();
 	}
 	
 	public void addProduct (Product product) {
@@ -52,9 +57,5 @@ public class Company {
 	
 	public boolean removeProduct (Product product) {
 		return products.remove(product);
-	}
-	
-	public int getProductQuantity() { 
-		return products.size();
 	}
 }

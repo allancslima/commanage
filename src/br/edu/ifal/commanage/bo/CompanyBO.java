@@ -46,22 +46,30 @@ public class CompanyBO {
 			throw new Exception("Invalid phone");
 	}
 	
-	public void validateAddEmployee(Employee employee) throws Exception {
-		if (FieldValidation.isValidName(employee.getName()) && FieldValidation.isValidPhone(employee.getPhone()) && FieldValidation.isValidEmail(employee.getEmail()))
+	public int getEmployeeQuantity () { 
+		return company.getEmployeeQuantity(); 
+	}
+	
+	public void validateAddEmployee (Employee employee) throws Exception {
+		if (FieldValidation.isValidName(employee.getName()) &&
+			FieldValidation.isValidPhone(employee.getPhone()) &&
+			FieldValidation.isValidEmail(employee.getEmail()))
 		   company.addEmployee(employee);
 		else
 		  throw new Exception("Invalid employee");
-		}
-	public boolean removeEmployee(Employee employee){
+	}
+	
+	public boolean removeEmployee (Employee employee){
 		return company.removeEmployee(employee);
 	}
 	
-	public int getEmployeeQuantity() { 
-		return company.getEmployeeQuantity(); 
-				}
+	public int getProductQuantity (){
+		return company.getProductQuantity();
+	}
 	
 	public void validateAddProduct (Product product) throws Exception {
-		if (product.getSellPrice() > 0 && product.getBuyPrice() > 0)
+		if (FieldValidation.isValidName(product.getName()) && 
+			product.getPurchasePrice() > 0 && product.getSalePrice() > 0)
 			company.addProduct(product);
 		else
 			throw new Exception("Invalid product");
@@ -69,9 +77,5 @@ public class CompanyBO {
 	
 	public boolean removeProduct (Product product) {
 		return company.removeProduct(product);
-	}
-	
-	public int getProductQuantity(){
-		return company.getProductQuantity();
 	}
 }
