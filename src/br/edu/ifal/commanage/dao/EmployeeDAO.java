@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import br.edu.ifal.commanage.connection.ConnectionFactory;
 import br.edu.ifal.commanage.model.Employee;
 
@@ -40,12 +39,10 @@ public class EmployeeDAO {
 			rs = stmt.executeQuery();
 			
 			while (rs.next()) {
-				Employee employee = new Employee("-", "-", "-");
-				employee.setId(rs.getInt("id"));
-				employee.setName(rs.getString("name"));
-				employee.setPhone(rs.getString("phone"));
-				employee.setEmail(rs.getString("email"));
-				
+				Employee employee = new Employee(rs.getString("name"), 
+												 rs.getString("phone"),
+												 rs.getString("email"));
+				employee.setId(rs.getInt("id"));	
 				employees.add(employee);
 			}
 		} catch (SQLException e) {

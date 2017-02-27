@@ -2,6 +2,7 @@ package br.edu.ifal.commanage.model;
 
 public class Product {
 	
+	private int id;
 	private String name;
 	private double purchasePrice;
 	private double salePrice;
@@ -10,6 +11,14 @@ public class Product {
 		this.name = name;
 		this.purchasePrice = purchasePrice;
 		this.salePrice = salePrice;
+	}
+	
+	public int getId () {
+		return id;
+	}
+ 	
+	public void setId (int id) {
+		this.id = id;
 	}
 	
 	public String getName () {
