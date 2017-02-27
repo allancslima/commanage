@@ -29,18 +29,18 @@ public class ConnectionFactory {
 		}
 	}
 	
-	public static void closeConnection (Connection con, PreparedStatement pstmt) throws SQLException {
+	public static void closeConnection (Connection con, PreparedStatement stmt) throws SQLException {
 		closeConnection(con);
 		
 		try {
-			pstmt.close();
+			stmt.close();
 		} catch (SQLException e) {
 			throw new SQLException("Connection close error");
 		}
 	}
 	
-	public static void closeConnection (Connection con, PreparedStatement pstmt, ResultSet rs) throws SQLException {
-		closeConnection(con, pstmt);
+	public static void closeConnection (Connection con, PreparedStatement stmt, ResultSet rs) throws SQLException {
+		closeConnection(con, stmt);
 		
 		try {
 			rs.close();
