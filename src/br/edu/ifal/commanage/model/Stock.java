@@ -2,11 +2,11 @@ package br.edu.ifal.commanage.model;
 
 import java.util.HashMap;
 
-public class ProductStock {
+public class Stock {
 	
 	HashMap<Integer, Integer> mapProducts = new HashMap<>();
 	
-	public double updateStockForAddedPurchase (Product product, int productAmountToAdd) {
+	public void updateStockForAddedPurchase (Product product, int productAmountToAdd) {
 		int productId = 0;
 		
 		if (getProductAmount(productId) == 0) {
@@ -14,17 +14,13 @@ public class ProductStock {
 		}
 		int productAmount = getProductAmount(productId);
 		mapProducts.put(productId, productAmount + productAmountToAdd);
-		
-		return product.getPurchasePrice() * productAmountToAdd;
 	}
 	
-	public double updateStockForRemovedPurchase (Product product, int productAmountToRemove) {
+	public void updateStockForRemovedPurchase (Product product, int productAmountToRemove) {
 		int productId = 0;
 		
 		int productAmount = getProductAmount(productId);
 		mapProducts.put(productId, productAmount - productAmountToRemove);
-		
-		return product.getPurchasePrice() * productAmountToRemove;
 	}
 	
 	public int getProductAmount (int productId) {

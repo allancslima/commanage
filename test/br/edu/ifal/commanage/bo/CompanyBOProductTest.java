@@ -18,16 +18,18 @@ public class CompanyBOProductTest extends TestCase {
 	@Test
 	public void testShouldNotValidateAddProductIfIncorrectData () throws Exception {
 		Product product = new Product("oracle", 0, -1);
+		
 		try {
 			companyBO.validateAddProduct(product);
 		} catch (Exception e) {
-			assertEquals("Invalid product" ,e.getMessage());
+			assertEquals("Invalid product", e.getMessage());
 		}
 	}
 	
 	@Test
 	public void testShouldValidateAddProductIfCorrectData () throws Exception {
-		Product product = new Product("Oracle", 1, 2);
+		Product product = new Product("Oracle", 1.5, 2.0);
+		
 		try {
 			companyBO.validateAddProduct(product);
 			assertEquals(1, companyBO.getProductQuantity());

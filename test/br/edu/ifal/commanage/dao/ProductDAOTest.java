@@ -1,10 +1,10 @@
 package br.edu.ifal.commanage.dao;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
 import org.junit.Test;
 import br.edu.ifal.commanage.model.Product;
 
-public class ProductDAOTest {
+public class ProductDAOTest extends TestCase {
 	
 	ProductDAO productDAO = new ProductDAO();
 	
@@ -14,9 +14,8 @@ public class ProductDAOTest {
 
 		try {
 			productDAO.create(product);
-			assertTrue(true);
 		} catch (Exception e) {
-			assertTrue(e.getMessage(), false);
+			assertEquals("", e.getMessage());
 		}
 	}
 	
@@ -25,7 +24,7 @@ public class ProductDAOTest {
 		try {
 			assertNotNull(productDAO.read());
 		} catch (Exception e) {
-			assertTrue(e.getMessage(), false);
+			assertEquals("", e.getMessage());
 		}
 	}
 	
@@ -37,7 +36,7 @@ public class ProductDAOTest {
 		try {
 			productDAO.update(product);
 		} catch (Exception e) {
-			assertTrue(e.getMessage(), false);
+			assertEquals("", e.getMessage());
 		}
 	}
 	
@@ -46,7 +45,7 @@ public class ProductDAOTest {
 		try {
 			productDAO.delete(1);
 		} catch (Exception e) {
-			assertTrue(e.getMessage(), false);
+			assertEquals("", e.getMessage());
 		}
 	}
 }

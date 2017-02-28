@@ -23,7 +23,8 @@ public class ConnectionFactory {
 	
 	public static void closeConnection (Connection con) throws SQLException {
 		try {
-			con.close();
+			if (con != null)
+				con.close();
 		} catch (SQLException e) {
 			throw new SQLException("Connection close error");
 		}
@@ -33,7 +34,8 @@ public class ConnectionFactory {
 		closeConnection(con);
 		
 		try {
-			stmt.close();
+			if (stmt != null)
+				stmt.close();
 		} catch (SQLException e) {
 			throw new SQLException("Connection close error");
 		}
@@ -43,7 +45,8 @@ public class ConnectionFactory {
 		closeConnection(con, stmt);
 		
 		try {
-			rs.close();
+			if (rs != null)
+				rs.close();
 		} catch (SQLException e) {
 			throw new SQLException("Connection close error");
 		}

@@ -15,7 +15,9 @@ public class EmployeeDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			stmt = con.prepareStatement("INSERT INTO employees (name, phone, email) VALUES (?, ?, ?)");
+			String sql = "INSERT INTO employees (name, phone, email) VALUES (?, ?, ?)";
+			stmt = con.prepareStatement(sql);
+			
 			stmt.setString(1, employee.getName());
 			stmt.setString(2, employee.getPhone());
 			stmt.setString(3, employee.getEmail());
@@ -35,14 +37,16 @@ public class EmployeeDAO {
 		ArrayList<Employee> employees = new ArrayList<>();
 		
 		try {
-			stmt = con.prepareStatement("SELECT * FROM employees");
+			String sql = "SELECT * FROM employees";
+			stmt = con.prepareStatement(sql);
 			rs = stmt.executeQuery();
 			
 			while (rs.next()) {
-				Employee employee = new Employee(rs.getString("name"), 
+				Employee employee = new Employee(rs.getString("name"),
 												 rs.getString("phone"),
 												 rs.getString("email"));
-				employee.setId(rs.getInt("id"));	
+				employee.setId(rs.getInt("id"));
+				
 				employees.add(employee);
 			}
 		} catch (SQLException e) {
@@ -59,7 +63,9 @@ public class EmployeeDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			stmt = con.prepareStatement("UPDATE employees SET name = ?, phone = ?, email = ? WHERE id = ?");
+			String sql = "UPDATE employees SET name = ?, phone = ?, email = ? WHERE id = ?";
+			stmt = con.prepareStatement(sql);
+			
 			stmt.setString(1, employee.getName());
 			stmt.setString(2, employee.getPhone());
 			stmt.setString(3, employee.getEmail());
@@ -78,7 +84,9 @@ public class EmployeeDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			stmt = con.prepareStatement("DELETE FROM employees WHERE id = ?");
+			String sql = "DELETE FROM employees WHERE id = ?";
+			stmt = con.prepareStatement(sql);
+			
 			stmt.setInt(1, employeeId);
 			
 			stmt.executeUpdate();

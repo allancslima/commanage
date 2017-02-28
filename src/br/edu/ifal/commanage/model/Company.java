@@ -9,7 +9,6 @@ public class Company {
 	private String phone;
 	private ArrayList<Employee> employees = new ArrayList<>();
 	private ArrayList<Product> products = new ArrayList<>();
-	private ProductStock productStock = new ProductStock();
 	
 	public String getName () {
 		return name;

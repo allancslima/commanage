@@ -1,7 +1,7 @@
 package br.edu.ifal.commanage.dao;
 
-import org.junit.Test;
 import junit.framework.TestCase;
+import org.junit.Test;
 import br.edu.ifal.commanage.model.Employee;
 
 public class EmployeeDAOTest extends TestCase {
@@ -14,9 +14,8 @@ public class EmployeeDAOTest extends TestCase {
 
 		try {
 			employeeDAO.create(employee);
-			assertTrue(true);
 		} catch (Exception e) {
-			assertTrue(e.getMessage(), false);
+			assertEquals("", e.getMessage());
 		}
 	}
 	
@@ -25,7 +24,7 @@ public class EmployeeDAOTest extends TestCase {
 		try {
 			assertNotNull(employeeDAO.read());
 		} catch (Exception e) {
-			assertTrue(e.getMessage(), false);
+			assertEquals("", e.getMessage());
 		}
 	}
 	
@@ -37,7 +36,7 @@ public class EmployeeDAOTest extends TestCase {
 		try {
 			employeeDAO.update(employee);
 		} catch (Exception e) {
-			assertTrue(e.getMessage(), false);
+			assertEquals("", e.getMessage());
 		}
 	}
 	
@@ -46,7 +45,7 @@ public class EmployeeDAOTest extends TestCase {
 		try {
 			employeeDAO.delete(1);
 		} catch (Exception e) {
-			assertTrue(e.getMessage(), false);
+			assertEquals("", e.getMessage());
 		}
 	}
 }

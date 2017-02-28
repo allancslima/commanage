@@ -15,7 +15,9 @@ public class ProductDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			stmt = con.prepareStatement("INSERT INTO products (name, purchasePrice, salePrice) VALUES (?, ?, ?)");
+			String sql = "INSERT INTO products (name, purchasePrice, salePrice) VALUES (?, ?, ?)";
+			stmt = con.prepareStatement(sql);
+			
 			stmt.setString(1, product.getName());
 			stmt.setDouble(2, product.getPurchasePrice());
 			stmt.setDouble(3, product.getSalePrice());
@@ -35,7 +37,8 @@ public class ProductDAO {
 		ArrayList<Product> products = new ArrayList<>();
 		
 		try {
-			stmt = con.prepareStatement("SELECT * FROM products");
+			String sql = "SELECT * FROM products";
+			stmt = con.prepareStatement(sql);
 			rs = stmt.executeQuery();
 			
 			while (rs.next()) {
@@ -43,6 +46,7 @@ public class ProductDAO {
 											  rs.getDouble("purchasePrice"),
 											  rs.getDouble("salePrice"));
 				product.setId(rs.getInt("id"));
+				
 				products.add(product);
 			}
 		} catch (SQLException e) {
@@ -59,7 +63,9 @@ public class ProductDAO {
 		PreparedStatement stmt= null;
 		
 		try {
-			stmt = con.prepareStatement("UPDATE products SET name = ?, purchasePrice = ?, salePrice = ? WHERE id = ?");
+			String sql = "UPDATE products SET name = ?, purchasePrice = ?, salePrice = ? WHERE id = ?";
+			stmt = con.prepareStatement(sql);
+			
 			stmt.setString(1, product.getName());
 			stmt.setDouble(2, product.getPurchasePrice());
 			stmt.setDouble(3, product.getSalePrice());
@@ -78,7 +84,9 @@ public class ProductDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			stmt = con.prepareStatement("DELETE FROM employees WHERE id = ?");
+			String sql = "DELETE FROM employees WHERE id = ?";
+			stmt = con.prepareStatement(sql);
+			
 			stmt.setInt(1, productId);
 			
 			stmt.executeUpdate();
