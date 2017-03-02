@@ -9,6 +9,7 @@ public class Company {
 	private String phone;
 	private ArrayList<Employee> employees = new ArrayList<>();
 	private ArrayList<Product> products = new ArrayList<>();
+	private ArrayList<Sale> sales = new ArrayList<>();
 	
 	public String getName () {
 		return name;
@@ -56,5 +57,17 @@ public class Company {
 	
 	public boolean removeProduct (Product product) {
 		return products.remove(product);
+	}
+	
+	public int getSaleQuantity (){
+		return sales.size();
+	}
+
+	public void addSale (Sale sale) {
+		sales.add(sale);
+	}
+	
+	public boolean removeSale (Sale sale) {
+		return sales.remove(sale);
 	}
 }

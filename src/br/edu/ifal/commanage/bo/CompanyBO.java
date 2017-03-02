@@ -3,6 +3,7 @@ package br.edu.ifal.commanage.bo;
 import br.edu.ifal.commanage.model.Company;
 import br.edu.ifal.commanage.model.Employee;
 import br.edu.ifal.commanage.model.Product;
+import br.edu.ifal.commanage.model.Sale;
 import br.edu.ifal.commanage.util.FieldValidation;
 import br.edu.ifal.commanage.util.exception.CompanyBOException;
 
@@ -78,5 +79,16 @@ public class CompanyBO {
 	
 	public boolean removeProduct (Product product) {
 		return company.removeProduct(product);
+	}
+	
+	public int getSaleQuantity(){
+		return company.getSaleQuantity();
+	}
+	
+	public void validateAddSale (Sale sale) throws CompanyBOException{
+		if(sale.getQuantity()>0)
+			company.addSale(sale);
+		else
+			throw new CompanyBOException("Invalid sale");
 	}
 }
