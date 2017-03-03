@@ -15,7 +15,7 @@ import java.util.List;
 import br.edu.ifal.commanage.dao.EmployeeDAO;
 import br.edu.ifal.commanage.model.Employee;
 
-public class LayoutEmployeeController implements Initializable {
+public class LayoutEmployeesController implements Initializable {
 	
 	@FXML
 	private TableView<Employee> tableViewEmployees;
@@ -34,17 +34,17 @@ public class LayoutEmployeeController implements Initializable {
 	@FXML
 	private Label labelEmailEmployee;
 	@FXML
-	private Button buttonInserir;
+	private Button buttonCreate;
 	@FXML
-	private Button buttonAlterar;
+	private Button buttonUpdate;
 	@FXML
-	private Button buttonRemover;
+	private Button buttonDelete;
 	
 	private EmployeeDAO employeeDAO = new EmployeeDAO();
 	private List<Employee> employees;
 	private ObservableList<Employee> observableListEmployees;
 	
-	public void loadEmployeeTableView ()  {
+	public void loadTableViewEmployees ()  {
 		tableColumnNameEmployee.setCellValueFactory(new PropertyValueFactory<>("name"));
 		tableColumnFunctionEmployee.setCellValueFactory(new PropertyValueFactory<>("id"));
 		
@@ -58,10 +58,11 @@ public class LayoutEmployeeController implements Initializable {
 		tableViewEmployees.setItems(observableListEmployees);
 	}
 
-	public void selectItemTableViewEmployee (Employee employee) {
+	public void selectItemTableViewEmployees (Employee employee) {
 		if (employee != null) {
 			labelEmployeeID.setText(String.valueOf(employee.getId()));
 			labelNameEmployee.setText(employee.getName());
+			//labelFunctionEmployee.setText(employee.getFunction());
 			labelPhoneEmployee.setText(employee.getPhone());
 			labelEmailEmployee.setText(employee.getEmail());
 		} else {
@@ -75,9 +76,9 @@ public class LayoutEmployeeController implements Initializable {
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		loadEmployeeTableView();
+		loadTableViewEmployees();
 		
 		tableViewEmployees.getSelectionModel().selectedItemProperty().addListener(
-				(observable, oldValue, newValue) -> selectItemTableViewEmployee(newValue));
+				(observable, oldValue, newValue) -> selectItemTableViewEmployees(newValue));
 	}
 }

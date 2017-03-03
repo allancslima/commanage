@@ -24,10 +24,16 @@ public class LayoutMainController implements Initializable {
 	
 	@FXML
 	public void handleMenuItemRegistrationEmployees () throws IOException {
-		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/LayoutEmployee.fxml"));
+		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/LayoutEmployees.fxml"));
 		anchorPane.getChildren().setAll(a);
 	}
-
+	
+	@FXML
+	public void handleMenuItemRegistrationProducts () throws IOException {
+		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/LayoutProducts.fxml"));
+		anchorPane.getChildren().setAll(a);
+	}
+	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
