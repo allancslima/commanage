@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ArrayList;
 import br.edu.ifal.commanage.connection.ConnectionFactory;
 import br.edu.ifal.commanage.model.Employee;
@@ -30,11 +31,11 @@ public class EmployeeDAO {
 		}
 	}
 	
-	public ArrayList<Employee> read () throws SQLException {
+	public List<Employee> read () throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		ArrayList<Employee> employees = new ArrayList<>();
+		List<Employee> employees = new ArrayList<>();
 		
 		try {
 			String sql = "SELECT * FROM employees";

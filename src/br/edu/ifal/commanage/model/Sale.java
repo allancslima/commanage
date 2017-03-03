@@ -1,9 +1,11 @@
 package br.edu.ifal.commanage.model;
 
 public class Sale {
-	Product product; 
-	int quantity;
-	public Sale(Product product, int quantity){
+	
+	private Product product; 
+	private int quantity;
+	
+	public Sale (Product product, int quantity){
 		setProduct(product);
 		setQuantity(quantity);
 	}

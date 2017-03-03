@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ArrayList;
 import br.edu.ifal.commanage.connection.ConnectionFactory;
 import br.edu.ifal.commanage.model.Product;
@@ -30,11 +31,11 @@ public class ProductDAO {
 		}
 	}
 	
-	public ArrayList<Product> read () throws SQLException {
+	public List<Product> read () throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		ArrayList<Product> products = new ArrayList<>();
+		List<Product> products = new ArrayList<>();
 		
 		try {
 			String sql = "SELECT * FROM products";

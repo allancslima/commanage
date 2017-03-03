@@ -85,10 +85,14 @@ public class CompanyBO {
 		return company.getSaleQuantity();
 	}
 	
-	public void validateAddSale (Sale sale) throws CompanyBOException{
-		if(sale.getQuantity()>0)
+	public void validateAddSale (Sale sale) throws CompanyBOException {
+		if(sale.getQuantity() > 0)
 			company.addSale(sale);
 		else
 			throw new CompanyBOException("Invalid sale");
+	}
+	
+	public boolean removeSale (Sale sale) throws CompanyBOException {
+		return company.removeSale(sale);
 	}
 }
