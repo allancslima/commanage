@@ -4,6 +4,7 @@ import br.edu.ifal.commanage.model.Company;
 import br.edu.ifal.commanage.model.Product;
 import br.edu.ifal.commanage.util.FieldValidation;
 import br.edu.ifal.commanage.util.exception.CompanyBOException;
+import java.sql.SQLException;
 
 public class CompanyBOProduct {
 	
@@ -13,11 +14,11 @@ public class CompanyBOProduct {
 		this.company = company;
 	}
 	
-	public int getProductQuantity (){
+	/* public int getProductQuantity (){
 		return company.getProductQuantity();
-	}
+	} */
 	
-	public void validateAddProduct (Product product) throws CompanyBOException {
+	public void validateAddProduct (Product product) throws CompanyBOException, SQLException {
 		if (FieldValidation.isValidName(product.getName()) && 
 			product.getPurchasePrice() > 0 && product.getSalePrice() > 0)
 			company.addProduct(product);
@@ -25,7 +26,15 @@ public class CompanyBOProduct {
 			throw new CompanyBOException("Invalid product");
 	}
 	
-	public boolean removeProduct (Product product) {
-		return company.removeProduct(product);
+	public void validateUpdateProduct(Product product) throws CompanyBOException, SQLException {
+		if (FieldValidation.isValidName(product.getName()) && 
+				product.getPurchasePrice() > 0 && product.getSalePrice() > 0)
+				company.updateProduct(product);
+		else
+			throw new CompanyBOException("Invalid product");
 	}
+	
+	/* public boolean removeProduct (Product product) {
+		return company.removeProduct(product);
+	} */
 }

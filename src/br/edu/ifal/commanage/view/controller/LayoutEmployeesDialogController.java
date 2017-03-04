@@ -1,17 +1,13 @@
 package br.edu.ifal.commanage.view.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import br.edu.ifal.commanage.bo.CompanyBOEmployee;
 import br.edu.ifal.commanage.model.Company;
 import br.edu.ifal.commanage.model.Employee;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class LayoutEmployeesDialogController implements Initializable {
+public class LayoutEmployeesDialogController {
 	
 	@FXML
 	private TextField textFieldNameEmployee;
@@ -19,19 +15,10 @@ public class LayoutEmployeesDialogController implements Initializable {
 	private TextField textFieldPhoneEmployee;
 	@FXML
 	private TextField textFieldEmailEmployee;
-	@FXML
-	private Button buttonConfirm;
-	@FXML
-	public Button buttonCancel;
 	
 	private Stage dialogStage;
 	private Employee employee;
 	private boolean buttonConfirmClicked = false;
-	
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		
-	}
 	
 	public Stage getDialogStage () {
 		return dialogStage;

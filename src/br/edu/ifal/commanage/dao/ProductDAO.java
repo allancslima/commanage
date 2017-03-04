@@ -85,7 +85,7 @@ public class ProductDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			String sql = "DELETE FROM employees WHERE id = ?";
+			String sql = "DELETE FROM products WHERE id = ?";
 			stmt = con.prepareStatement(sql);
 			
 			stmt.setInt(1, productId);

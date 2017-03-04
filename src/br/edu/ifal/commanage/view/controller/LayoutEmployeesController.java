@@ -1,7 +1,7 @@
 package br.edu.ifal.commanage.view.controller;
 
-import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,9 +16,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import java.util.List;
 import br.edu.ifal.commanage.dao.EmployeeDAO;
 import br.edu.ifal.commanage.model.Employee;
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class LayoutEmployeesController implements Initializable {
@@ -135,9 +135,9 @@ public class LayoutEmployeesController implements Initializable {
 	}
 	
 	public boolean isNullEmployee (Employee employee) {
-		if (employee != null)
-			return false;
-		return true;
+		if (employee == null)
+			return true;
+		return false;
 	}
 	
 	public void alert () {
