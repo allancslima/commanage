@@ -2,7 +2,7 @@ package br.edu.ifal.commanage.view.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import br.edu.ifal.commanage.bo.CompanyBO;
+import br.edu.ifal.commanage.bo.CompanyBOEmployee;
 import br.edu.ifal.commanage.model.Company;
 import br.edu.ifal.commanage.model.Employee;
 import javafx.fxml.FXML;
@@ -62,14 +62,13 @@ public class LayoutEmployeesDialogController implements Initializable {
 		employee.setPhone(textFieldPhoneEmployee.getText());
 		employee.setEmail(textFieldEmailEmployee.getText());
 		
-		Company company = new Company();
-		CompanyBO companyBO = new CompanyBO(company);
+		CompanyBOEmployee companyBOEmployee = new CompanyBOEmployee(new Company());
 		
 		try {
 			if (isNewEmployee(employee)) {
-				companyBO.validateAddEmployee(employee);
+				companyBOEmployee.validateAddEmployee(employee);
 			} else {
-				companyBO.validateUpdateEmployee(employee);
+				companyBOEmployee.validateUpdateEmployee(employee);
 			}
 			buttonConfirmClicked = true;
 			dialogStage.close();

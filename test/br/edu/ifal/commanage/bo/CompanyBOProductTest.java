@@ -7,11 +7,11 @@ import br.edu.ifal.commanage.model.Product;
 
 public class CompanyBOProductTest extends TestCase {
 
-	private CompanyBO companyBO; 
+	private CompanyBOProduct companyBOProduct; 
 	
 	@Override
 	protected void setUp () throws Exception {
-		companyBO = new CompanyBO(new Company());
+		companyBOProduct = new CompanyBOProduct(new Company());
 		super.setUp();
 	}
 	
@@ -20,7 +20,7 @@ public class CompanyBOProductTest extends TestCase {
 		Product product = new Product("oracle", 0, -1);
 		
 		try {
-			companyBO.validateAddProduct(product);
+			companyBOProduct.validateAddProduct(product);
 		} catch (Exception e) {
 			assertEquals("Invalid product", e.getMessage());
 		}
@@ -31,8 +31,8 @@ public class CompanyBOProductTest extends TestCase {
 		Product product = new Product("Oracle", 1.5, 2.0);
 		
 		try {
-			companyBO.validateAddProduct(product);
-			assertEquals(1, companyBO.getProductQuantity());
+			companyBOProduct.validateAddProduct(product);
+			assertEquals(1, companyBOProduct.getProductQuantity());
 		} catch (Exception e) {
 			assertEquals("", e.getMessage());
 		}

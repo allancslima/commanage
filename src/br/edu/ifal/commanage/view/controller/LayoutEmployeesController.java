@@ -84,7 +84,7 @@ public class LayoutEmployeesController implements Initializable {
 	
 	public boolean showLayoutEmployeesDialog (Employee employee) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(LayoutEmployeesDialogController.class.getResource("/br/edu/ifal/commanage/view/LayoutEmployeesDialog.fxml"));
+		loader.setLocation(LayoutEmployeesDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutEmployeesDialog.fxml"));
 		
 		AnchorPane page = loader.load();
 		Scene scene = new Scene(page);

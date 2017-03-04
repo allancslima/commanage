@@ -7,11 +7,11 @@ import br.edu.ifal.commanage.model.Employee;
 
 public class CompanyBOEmployeeTest extends TestCase {
 	
-	private CompanyBO companyBO;
+	private CompanyBOEmployee companyBOEmployee;
 	
 	@Override
 	protected void setUp () throws Exception {
-		companyBO = new CompanyBO(new Company());
+		companyBOEmployee = new CompanyBOEmployee(new Company());
 		super.setUp();
 	}
 	
@@ -20,7 +20,7 @@ public class CompanyBOEmployeeTest extends TestCase {
 		Employee employee = new Employee("gosling", "(8)9999999", "g@email.c");
 		
 		try {
-			companyBO.validateAddEmployee(employee);
+			companyBOEmployee.validateAddEmployee(employee);
 		} catch (Exception e) {
 			assertEquals("Invalid employee", e.getMessage());
 		}
@@ -31,7 +31,7 @@ public class CompanyBOEmployeeTest extends TestCase {
 		Employee employee = new Employee("Gosling", "(82)99999-9999", "gosling@email.com");
 		
 		try {
-			companyBO.validateAddEmployee(employee);
+			companyBOEmployee.validateAddEmployee(employee);
 			//assertEquals (1, companyBO.getEmployeeQuantity());
 		} catch (Exception e) {
 			assertEquals("", e.getMessage());

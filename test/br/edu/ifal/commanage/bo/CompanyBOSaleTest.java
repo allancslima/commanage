@@ -8,11 +8,11 @@ import br.edu.ifal.commanage.model.Sale;
 
 public class CompanyBOSaleTest extends TestCase {
 	
-	private CompanyBO companyBO; 
+	private CompanyBOSale companyBOSale; 
 	
 	@Override
 	protected void setUp () throws Exception {
-		companyBO = new CompanyBO(new Company());
+		companyBOSale = new CompanyBOSale(new Company());
 		super.setUp();
 	}
 	
@@ -22,7 +22,7 @@ public class CompanyBOSaleTest extends TestCase {
 		Sale sale = new Sale(product, 0);
 		
 		try {
-			companyBO.validateAddSale(sale);
+			companyBOSale.validateAddSale(sale);
 		} catch (Exception e) {
 			assertEquals("Invalid sale", e.getMessage());
 		}
@@ -34,8 +34,8 @@ public class CompanyBOSaleTest extends TestCase {
 		Sale sale = new Sale(product, 10);
 		
 		try {
-			companyBO.validateAddSale(sale);
-			assertEquals(1, companyBO.getSaleQuantity());
+			companyBOSale.validateAddSale(sale);
+			assertEquals(1, companyBOSale.getSaleQuantity());
 		} catch (Exception e) {
 			assertEquals("", e.getMessage());
 		}
