@@ -6,6 +6,7 @@ import br.edu.ifal.commanage.model.Product;
 import br.edu.ifal.commanage.model.Sale;
 import br.edu.ifal.commanage.util.FieldValidation;
 import br.edu.ifal.commanage.util.exception.CompanyBOException;
+import java.sql.SQLException;
 
 public class CompanyBO {
 	
@@ -48,11 +49,11 @@ public class CompanyBO {
 			throw new CompanyBOException("Invalid phone");
 	}
 	
-	public int getEmployeeQuantity () { 
-		return company.getEmployeeQuantity(); 
-	}
+	/*public int getEmployeeQuantity () {
+		return company.getEmployeeQuantity();
+	}*/
 	
-	public void validateAddEmployee (Employee employee) throws CompanyBOException {
+	public void validateAddEmployee (Employee employee) throws CompanyBOException, SQLException {
 		if (FieldValidation.isValidName(employee.getName()) &&
 			FieldValidation.isValidPhone(employee.getPhone()) &&
 			FieldValidation.isValidEmail(employee.getEmail()))
@@ -61,9 +62,18 @@ public class CompanyBO {
 		  throw new CompanyBOException("Invalid employee");
 	}
 	
-	public boolean removeEmployee (Employee employee){
-		return company.removeEmployee(employee);
+	public void validateUpdateEmployee (Employee employee) throws CompanyBOException, SQLException {
+		if (FieldValidation.isValidName(employee.getName()) &&
+			FieldValidation.isValidPhone(employee.getPhone()) &&
+			FieldValidation.isValidEmail(employee.getEmail()))
+		   company.updateEmployee(employee);
+		else
+		  throw new CompanyBOException("Invalid employee");
 	}
+	
+	/*public boolean removeEmployee (Employee employee) {
+		return company.removeEmployee(employee);
+	}*/
 	
 	public int getProductQuantity (){
 		return company.getProductQuantity();

@@ -8,7 +8,7 @@ create table `employees` (
 	`id` int not null auto_increment,
 	`name` varchar(50) not null,
     `phone` varchar(15),
-    `email` varchar(20),
+    `email` varchar(40),
     primary key(id)
 ) default charset = utf8;
 

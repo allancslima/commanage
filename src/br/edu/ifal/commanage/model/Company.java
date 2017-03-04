@@ -1,13 +1,16 @@
 package br.edu.ifal.commanage.model;
 
 import java.util.ArrayList;
+import br.edu.ifal.commanage.dao.EmployeeDAO;
+import java.sql.SQLException;
 
 public class Company {
 
 	private String name;
 	private String cnpj;
 	private String phone;
-	private ArrayList<Employee> employees = new ArrayList<>();
+	// private ArrayList<Employee> employees = new ArrayList<>();
+	private EmployeeDAO employeeDAO = new EmployeeDAO();
 	private ArrayList<Product> products = new ArrayList<>();
 	private ArrayList<Sale> sales = new ArrayList<>();
 	
@@ -35,17 +38,22 @@ public class Company {
 		this.phone = phone;
 	}
 	
-	public int getEmployeeQuantity () { 
+	/* public int getEmployeeQuantity () { 
 		return employees.size();
+	} */
+	
+	public void addEmployee (Employee employee) throws SQLException {
+		// employees.add(employee);
+		employeeDAO.create(employee);
 	}
 	
-	public void addEmployee (Employee employee) {
-		employees.add(employee);
+	public void updateEmployee (Employee employee) throws SQLException {
+		employeeDAO.update(employee);
 	}
 	
-	public boolean removeEmployee (Employee employee) {
+	/* public boolean removeEmployee (Employee employee) {
 		return employees.remove(employee);
-	}
+	} */
 	
 	public int getProductQuantity () { 
 		return products.size();
