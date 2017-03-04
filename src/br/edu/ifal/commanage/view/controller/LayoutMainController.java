@@ -20,7 +20,14 @@ public class LayoutMainController implements Initializable {
 	@FXML
 	private MenuItem menuItemRegistrationClients;
 	@FXML
+	private MenuItem menuItemRegistrationPurchases;
+	@FXML
 	private AnchorPane anchorPane;
+	
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		
+	}
 	
 	@FXML
 	public void handleMenuItemRegistrationEmployees () throws IOException {
@@ -34,8 +41,9 @@ public class LayoutMainController implements Initializable {
 		anchorPane.getChildren().setAll(a);
 	}
 	
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		
+	@FXML
+	public void handleMenuItemRegistrationPurchases () throws IOException {
+		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutPurchases.fxml"));
+		anchorPane.getChildren().setAll(a);
 	}
 }

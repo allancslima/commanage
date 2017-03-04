@@ -43,7 +43,7 @@ public class ProductDAOTest extends TestCase {
 	@Test
 	public void testShouldDeleteEmployee () throws Exception {
 		try {
-			productDAO.delete(1);
+			productDAO.delete(2);
 		} catch (Exception e) {
 			assertEquals("", e.getMessage());
 		}

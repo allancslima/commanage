@@ -19,3 +19,17 @@ create table `products` (
     `salePrice` double not null,
     primary key(id)
 ) default charset = utf8;
+
+create table `purchases` (
+	`id` int not null auto_increment,
+    `productId` int,
+    `quantity` int,
+	primary key(id)
+) default charset = utf8;
+
+create table `sales` (
+	`id` int not null auto_increment,
+    `productId` int,
+    `quantity` int,
+	primary key(id)
+) default charset = utf8;

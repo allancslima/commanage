@@ -3,6 +3,7 @@ package br.edu.ifal.commanage.model;
 import java.util.ArrayList;
 import br.edu.ifal.commanage.dao.EmployeeDAO;
 import br.edu.ifal.commanage.dao.ProductDAO;
+import br.edu.ifal.commanage.dao.PurchaseDAO;
 
 import java.sql.SQLException;
 
@@ -15,6 +16,8 @@ public class Company {
 	private EmployeeDAO employeeDAO = new EmployeeDAO();
 	// private ArrayList<Product> products = new ArrayList<>();
 	private ProductDAO productDAO = new ProductDAO();
+	// private ArrayList<Purchase> purchases = new ArrayList<>();
+	private PurchaseDAO purchaseDAO = new PurchaseDAO();
 	private ArrayList<Sale> sales = new ArrayList<>();
 	
 	public String getName () {
@@ -73,6 +76,23 @@ public class Company {
 	
 	/* public boolean removeProduct (Product product) {
 		return products.remove(product);
+	} */
+	
+	/* public int getPurchaseQuantity () {
+		return purchases.size();
+	} */
+	
+	public void addPurchase (Purchase purchase) throws SQLException {
+		// purchases.add(purchase);
+		purchaseDAO.create(purchase);
+	}
+	
+	public void updatePurchase (Purchase purchase) throws SQLException {
+		purchaseDAO.update(purchase);
+	}
+	
+	/* public boolean removePurchase (Purchase purchase) {
+		return purchases.remove(purchase);
 	} */
 	
 	public int getSaleQuantity (){

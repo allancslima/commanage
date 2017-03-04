@@ -7,21 +7,20 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
 import br.edu.ifal.commanage.connection.ConnectionFactory;
-import br.edu.ifal.commanage.model.Product;
+import br.edu.ifal.commanage.model.Sale;
 
-public class ProductDAO {
+public class SaleDAO {
 	
-	public void create (Product product) throws SQLException {
+	public void create (Sale sale) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
 		try {
-			String sql = "INSERT INTO products (name, purchasePrice, salePrice) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO sales (productId, quantity) VALUES (?, ?)";
 			stmt = con.prepareStatement(sql);
 			
-			stmt.setString(1, product.getName());
-			stmt.setDouble(2, product.getPurchasePrice());
-			stmt.setDouble(3, product.getSalePrice());
+			stmt.setInt(1, sale.getProductId());
+			stmt.setInt(2, sale.getQuantity());
 			
 			stmt.executeUpdate();
 		} catch (SQLException e) {
@@ -31,24 +30,23 @@ public class ProductDAO {
 		}
 	}
 	
-	public List<Product> read () throws SQLException {
+	public List<Sale> read () throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		List<Product> products = new ArrayList<>();
+		List<Sale> sales = new ArrayList<>();
 		
 		try {
-			String sql = "SELECT * FROM products";
+			String sql = "SELECT * FROM sales";
 			stmt = con.prepareStatement(sql);
 			rs = stmt.executeQuery();
 			
 			while (rs.next()) {
-				Product product = new Product(rs.getString("name"),
-											  rs.getDouble("purchasePrice"),
-											  rs.getDouble("salePrice"));
-				product.setId(rs.getInt("id"));
+				Sale sale = new Sale(rs.getInt("productId"),
+									 rs.getInt("quantity"));
+				sale.setId(rs.getInt("id"));
 				
-				products.add(product);
+				sales.add(sale);
 			}
 		} catch (SQLException e) {
 			throw new SQLException("Error while reading");
@@ -56,21 +54,20 @@ public class ProductDAO {
 			ConnectionFactory.closeConnection(con, stmt, rs);
 		}
 		
-		return products;
+		return sales;
 	}
 	
-	public void update (Product product) throws SQLException {
+	public void update (Sale sale) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt= null;
 		
 		try {
-			String sql = "UPDATE products SET name = ?, purchasePrice = ?, salePrice = ? WHERE id = ?";
+			String sql = "UPDATE sales SET productId = ?, quantity = ? WHERE id = ?";
 			stmt = con.prepareStatement(sql);
 			
-			stmt.setString(1, product.getName());
-			stmt.setDouble(2, product.getPurchasePrice());
-			stmt.setDouble(3, product.getSalePrice());
-			stmt.setInt(4, product.getId());
+			stmt.setInt(1, sale.getProductId());
+			stmt.setInt(2, sale.getQuantity());
+			stmt.setInt(3, sale.getId());
 			
 			stmt.executeUpdate();
 		} catch (SQLException e) {
@@ -80,15 +77,15 @@ public class ProductDAO {
 		}
 	}
 	
-	public void delete (int productId) throws SQLException {
+	public void delete (int saleId) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
 		try {
-			String sql = "DELETE FROM products WHERE id = ?";
+			String sql = "DELETE FROM sales WHERE id = ?";
 			stmt = con.prepareStatement(sql);
 			
-			stmt.setInt(1, productId);
+			stmt.setInt(1, saleId);
 			
 			stmt.executeUpdate();
 		} catch (SQLException e) {
