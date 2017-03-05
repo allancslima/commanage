@@ -4,6 +4,8 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import br.edu.ifal.commanage.model.Company;
 import br.edu.ifal.commanage.model.Employee;
+import br.edu.ifal.commanage.model.Manager;
+import br.edu.ifal.commanage.model.Salesperson;
 
 public class CompanyBOEmployeeTest extends TestCase {
 	
@@ -17,7 +19,7 @@ public class CompanyBOEmployeeTest extends TestCase {
 	
 	@Test
 	public void testNotShouldAddEmployeeIfIncorrectData () throws Exception {
-		Employee employee = new Employee("gosling", "(8)9999999", "g@email.c");
+		Employee employee = new Manager("gosling", "(8)9999999", "g@email.c");
 		
 		try {
 			companyBOEmployee.validateAddEmployee(employee);
@@ -28,7 +30,7 @@ public class CompanyBOEmployeeTest extends TestCase {
 	
 	@Test
 	public void testShouldAddEmployeeIfCorrectData () throws Exception {
-		Employee employee = new Employee("Gosling", "(82)99999-9999", "gosling@email.com");
+		Employee employee = new Salesperson("Gosling", "(82)99999-9999", "gosling@email.com");
 		
 		try {
 			companyBOEmployee.validateAddEmployee(employee);

@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.ArrayList;
 import br.edu.ifal.commanage.connection.ConnectionFactory;
 import br.edu.ifal.commanage.model.Employee;
+import br.edu.ifal.commanage.model.Manager;
+import br.edu.ifal.commanage.model.Salesperson;
 
 public class EmployeeDAO {
 	
@@ -16,12 +18,13 @@ public class EmployeeDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			String sql = "INSERT INTO employees (name, phone, email) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO employees (name, function, phone, email) VALUES (?, ?, ?, ?)";
 			stmt = con.prepareStatement(sql);
 			
 			stmt.setString(1, employee.getName());
-			stmt.setString(2, employee.getPhone());
-			stmt.setString(3, employee.getEmail());
+			stmt.setString(2, employee.getFuncion());
+			stmt.setString(3, employee.getPhone());
+			stmt.setString(4, employee.getEmail());
 			
 			stmt.executeUpdate();
 		} catch (SQLException e) {
@@ -43,7 +46,13 @@ public class EmployeeDAO {
 			rs = stmt.executeQuery();
 			
 			while (rs.next()) {
-				Employee employee = new Employee(rs.getString("name"),
+				if (rs.getString("function") == "Gerente") {
+					Employee employee = new Manager(rs.getString("name"),
+							 						rs.getString("phone"),
+							 						rs.getString("email"));
+					employee.setId(rs.getInt("id"));
+				}
+				Employee employee = new Salesperson(rs.getString("name"),
 												 rs.getString("phone"),
 												 rs.getString("email"));
 				employee.setId(rs.getInt("id"));

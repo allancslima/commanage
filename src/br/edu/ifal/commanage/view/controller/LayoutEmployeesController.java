@@ -103,10 +103,10 @@ public class LayoutEmployeesController implements Initializable {
 	
 	@FXML
 	public void handleButtonCreate () throws IOException {
-		Employee employee = new Employee("", "", "");
+		/* Employee employee = new Employee("", "", "");
 		boolean isButtonConfirmClicked = showLayoutEmployeesDialog(employee);
 		
-		if (isButtonConfirmClicked) loadTableViewEmployees();
+		if (isButtonConfirmClicked) loadTableViewEmployees(); */
 	}
 	
 	@FXML

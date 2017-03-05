@@ -7,6 +7,7 @@ use commanage;
 create table `employees` (
 	`id` int not null auto_increment,
 	`name` varchar(50) not null,
+    `function` varchar(20) not null,
     `phone` varchar(15),
     `email` varchar(40),
     primary key(id)

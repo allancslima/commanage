@@ -1,9 +1,10 @@
 package br.edu.ifal.commanage.model;
 
-public class Employee {
+public abstract class Employee {
 	
 	private int id;
 	private String name;
+	protected String function;
 	private String phone;
 	private String email;
 	
@@ -27,6 +28,14 @@ public class Employee {
 	
 	public void setName (String name) {
 		this.name = name;
+	}
+	
+	public String getFuncion () {
+		return function;
+	}
+	
+	public void setFunction (String function) {
+		this.setFunction(function);
 	}
 	
 	public String getPhone () {

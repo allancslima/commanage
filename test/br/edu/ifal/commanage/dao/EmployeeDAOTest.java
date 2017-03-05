@@ -3,6 +3,8 @@ package br.edu.ifal.commanage.dao;
 import junit.framework.TestCase;
 import org.junit.Test;
 import br.edu.ifal.commanage.model.Employee;
+import br.edu.ifal.commanage.model.Manager;
+import br.edu.ifal.commanage.model.Salesperson;
 
 public class EmployeeDAOTest extends TestCase {
 	
@@ -10,7 +12,7 @@ public class EmployeeDAOTest extends TestCase {
 	
 	@Test
 	public void testShouldCreateEmployee () throws Exception {
-		Employee employee = new Employee("Gosling", "(99)99999-9999", "gosling@email.com");
+		Employee employee = new Manager("Gosling", "(99)99999-9999", "gosling@email.com");
 
 		try {
 			employeeDAO.create(employee);
@@ -30,7 +32,7 @@ public class EmployeeDAOTest extends TestCase {
 	
 	@Test
 	public void testShouldUpdateEmployee () throws Exception {
-		Employee employee = new Employee("James Gosling", "(99)99999-9999", "gosling@email.com");
+		Employee employee = new Salesperson("James Gosling", "(99)99999-9999", "gosling@email.com");
 		employee.setId(1);
 		
 		try {
