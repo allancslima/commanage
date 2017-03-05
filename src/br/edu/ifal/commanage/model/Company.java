@@ -1,9 +1,10 @@
 package br.edu.ifal.commanage.model;
 
-import java.util.ArrayList;
 import br.edu.ifal.commanage.dao.EmployeeDAO;
 import br.edu.ifal.commanage.dao.ProductDAO;
 import br.edu.ifal.commanage.dao.PurchaseDAO;
+import br.edu.ifal.commanage.dao.SaleDAO;
+
 import java.sql.SQLException;
 
 public class Company {
@@ -17,7 +18,8 @@ public class Company {
 	private ProductDAO productDAO = new ProductDAO();
 	// private ArrayList<Purchase> purchases = new ArrayList<>();
 	private PurchaseDAO purchaseDAO = new PurchaseDAO();
-	private ArrayList<Sale> sales = new ArrayList<>();
+	// private ArrayList<Sale> sales = new ArrayList<>();
+	private SaleDAO saleDAO = new SaleDAO();
 	private Stock stock = new Stock();
 	
 	public String getName () {
@@ -85,7 +87,7 @@ public class Company {
 	public void addPurchase (Purchase purchase) throws SQLException {
 		// purchases.add(purchase);
 		purchaseDAO.create(purchase);
-		stock.updateStockForAddedProccess(purchase);
+		// stock.updateStockForAddedProccess(purchase);
 	}
 	
 	public void removePurchase (Purchase purchase) throws SQLException {
@@ -93,15 +95,16 @@ public class Company {
 		stock.updateStockForRemovedProcess(purchase);
 	}
 	
-	public int getSaleQuantity (){
+	/* public int getSaleQuantity (){
 		return sales.size();
-	}
+	} */
 
-	public void addSale (Sale sale) {
-		sales.add(sale);
+	public void addSale (Sale sale) throws SQLException {
+		// sales.add(sale);
+		saleDAO.create(sale);
 	}
 	
-	public boolean removeSale (Sale sale) {
+	/* public boolean removeSale (Sale sale) {
 		return sales.remove(sale);
-	}
+	} */
 }

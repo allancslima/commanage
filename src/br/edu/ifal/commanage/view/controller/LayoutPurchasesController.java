@@ -86,7 +86,7 @@ public class LayoutPurchasesController implements Initializable {
 	
 	public boolean showLayoutPurchasesDialog (Purchase purchase) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(LayoutEmployeesDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutPurchasesDialog.fxml"));
+		loader.setLocation(LayoutPurchasesDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutPurchasesDialog.fxml"));
 		
 		AnchorPane page = loader.load();
 		Scene scene = new Scene(page);

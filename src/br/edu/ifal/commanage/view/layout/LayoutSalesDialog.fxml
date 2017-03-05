@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifal.commanage.view.controller.LayoutPurchasesDialogController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifal.commanage.view.controller.LayoutSalesDialogController">
    <children>
       <GridPane layoutX="23.0" layoutY="21.0" prefHeight="90.0" prefWidth="253.0">
         <columnConstraints>
@@ -24,7 +24,7 @@
          <children>
             <Label text="Produto" />
             <Label text="Quantidade" GridPane.rowIndex="1" />
-            <TextField fx:id="textFieldQuantityPurchase" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="textFieldQuantitySale" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="comboBoxProducts" onAction="#selectItemComboBoxProducts" prefHeight="25.0" prefWidth="177.0" promptText="Selecione um produto..." GridPane.columnIndex="1" />
          </children>
       </GridPane>
