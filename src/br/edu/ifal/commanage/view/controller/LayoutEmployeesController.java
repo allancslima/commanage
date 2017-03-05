@@ -54,7 +54,7 @@ public class LayoutEmployeesController implements Initializable {
 	
 	public void loadTableViewEmployees ()  {
 		tableColumnNameEmployee.setCellValueFactory(new PropertyValueFactory<>("name"));
-		tableColumnFunctionEmployee.setCellValueFactory(new PropertyValueFactory<>("id"));
+		tableColumnFunctionEmployee.setCellValueFactory(new PropertyValueFactory<>("function"));
 		
 		try {
 			employees = employeeDAO.read();
@@ -70,7 +70,7 @@ public class LayoutEmployeesController implements Initializable {
 		if (employee != null) {
 			labelEmployeeID.setText(String.valueOf(employee.getId()));
 			labelNameEmployee.setText(employee.getName());
-			//labelFunctionEmployee.setText(employee.getFunction());
+			labelFunctionEmployee.setText(employee.getFuncion());
 			labelPhoneEmployee.setText(employee.getPhone());
 			labelEmailEmployee.setText(employee.getEmail());
 		} else {
@@ -103,10 +103,10 @@ public class LayoutEmployeesController implements Initializable {
 	
 	@FXML
 	public void handleButtonCreate () throws IOException {
-		/* Employee employee = new Employee("", "", "");
+		Employee employee = null;
 		boolean isButtonConfirmClicked = showLayoutEmployeesDialog(employee);
 		
-		if (isButtonConfirmClicked) loadTableViewEmployees(); */
+		if (isButtonConfirmClicked) loadTableViewEmployees();
 	}
 	
 	@FXML

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import br.edu.ifal.commanage.dao.EmployeeDAO;
 import br.edu.ifal.commanage.dao.ProductDAO;
 import br.edu.ifal.commanage.dao.PurchaseDAO;
-
 import java.sql.SQLException;
 
 public class Company {
@@ -19,6 +18,7 @@ public class Company {
 	// private ArrayList<Purchase> purchases = new ArrayList<>();
 	private PurchaseDAO purchaseDAO = new PurchaseDAO();
 	private ArrayList<Sale> sales = new ArrayList<>();
+	private Stock stock = new Stock();
 	
 	public String getName () {
 		return name;
@@ -85,11 +85,13 @@ public class Company {
 	public void addPurchase (Purchase purchase) throws SQLException {
 		// purchases.add(purchase);
 		purchaseDAO.create(purchase);
+		stock.updateStockForAddedProccess(purchase);
 	}
 	
-	/* public boolean removePurchase (Purchase purchase) {
-		return purchases.remove(purchase);
-	} */
+	public void removePurchase (Purchase purchase) throws SQLException {
+		// return purchases.remove(purchase);
+		stock.updateStockForRemovedProcess(purchase);
+	}
 	
 	public int getSaleQuantity (){
 		return sales.size();

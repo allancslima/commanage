@@ -1,6 +1,6 @@
 package br.edu.ifal.commanage.model;
 
-public abstract class Employee {
+public class Employee {
 	
 	private int id;
 	private String name;

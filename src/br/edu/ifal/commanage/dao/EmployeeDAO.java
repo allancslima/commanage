@@ -46,17 +46,14 @@ public class EmployeeDAO {
 			rs = stmt.executeQuery();
 			
 			while (rs.next()) {
+				Employee employee;
 				if (rs.getString("function") == "Gerente") {
-					Employee employee = new Manager(rs.getString("name"),
-							 						rs.getString("phone"),
-							 						rs.getString("email"));
+					employee = new Manager(rs.getString("name"), rs.getString("phone"), rs.getString("email"));
+					employee.setId(rs.getInt("id"));
+				} else {
+					employee = new Salesperson(rs.getString("name"), rs.getString("phone"), rs.getString("email"));
 					employee.setId(rs.getInt("id"));
 				}
-				Employee employee = new Salesperson(rs.getString("name"),
-												 rs.getString("phone"),
-												 rs.getString("email"));
-				employee.setId(rs.getInt("id"));
-				
 				employees.add(employee);
 			}
 		} catch (SQLException e) {
@@ -73,13 +70,14 @@ public class EmployeeDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			String sql = "UPDATE employees SET name = ?, phone = ?, email = ? WHERE id = ?";
+			String sql = "UPDATE employees SET name = ?, function = ?, phone = ?, email = ? WHERE id = ?";
 			stmt = con.prepareStatement(sql);
 			
 			stmt.setString(1, employee.getName());
-			stmt.setString(2, employee.getPhone());
-			stmt.setString(3, employee.getEmail());
-			stmt.setInt(4, employee.getId());
+			stmt.setString(2, employee.getFuncion());
+			stmt.setString(3, employee.getPhone());
+			stmt.setString(4, employee.getEmail());
+			stmt.setInt(5, employee.getId());
 			
 			stmt.executeUpdate();
 		} catch (SQLException e) {
