@@ -1,7 +1,6 @@
 package br.edu.ifal.commanage.bo;
 
 import java.sql.SQLException;
-
 import br.edu.ifal.commanage.model.Company;
 import br.edu.ifal.commanage.model.Purchase;
 import br.edu.ifal.commanage.util.exception.CompanyBOException;
@@ -19,15 +18,8 @@ public class CompanyBOPurchase {
 	} */
 	
 	public void validateAddPurchase (Purchase purchase) throws CompanyBOException, SQLException {
-		if(purchase.getQuantity() > 0)
+		if (purchase.getProductId() != 0 && purchase.getQuantity() > 0)
 			company.addPurchase(purchase);
-		else
-			throw new CompanyBOException("Invalid purchase");
-	}
-	
-	public void validateUpdatePurchase (Purchase purchase) throws CompanyBOException, SQLException {
-		if(purchase.getQuantity() > 0)
-			company.updatePurchase(purchase);
 		else
 			throw new CompanyBOException("Invalid purchase");
 	}

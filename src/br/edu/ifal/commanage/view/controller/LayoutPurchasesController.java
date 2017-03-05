@@ -5,6 +5,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import br.edu.ifal.commanage.dao.ProductDAO;
 import br.edu.ifal.commanage.dao.PurchaseDAO;
 import br.edu.ifal.commanage.model.Purchase;
 import javafx.collections.FXCollections;
@@ -65,7 +67,15 @@ public class LayoutPurchasesController implements Initializable {
 	public void selectItemTableViewPurchases (Purchase purchase) {
 		if (purchase != null) {
 			labelPurchaseID.setText(String.valueOf(purchase.getId()));
-			labelNameProduct.setText(String.valueOf(purchase.getProductId()));
+			
+			try {
+				ProductDAO productDAO = new ProductDAO();
+				String nameProduct = productDAO.findById(purchase.getProductId()).getName();
+				labelNameProduct.setText(nameProduct);
+			} catch (Exception e) {
+				System.out.println("Exceção: " + e.getMessage());
+			}
+			
 			labelQuantityPurchase.setText(String.valueOf(purchase.getQuantity()));
 		} else {
 			labelPurchaseID.setText("");
@@ -99,18 +109,6 @@ public class LayoutPurchasesController implements Initializable {
 		boolean isButtonConfirmClicked = showLayoutPurchasesDialog(purchase);
 		
 		if (isButtonConfirmClicked) loadTableViewPurchases();
-	}
-	
-	@FXML
-	public void handleButtonUpdate () throws IOException {
-		Purchase purchase = tableViewPurchases.getSelectionModel().getSelectedItem();
-		
-		if (isNullPurchase(purchase)) {
-			alert();
-		} else {
-			boolean isButtonConfirmClicked = showLayoutPurchasesDialog(purchase);
-			if (isButtonConfirmClicked) loadTableViewPurchases();
-		}
 	}
 	
 	@FXML

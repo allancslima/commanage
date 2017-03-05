@@ -29,18 +29,6 @@ public class PurchaseDAOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldUpdatePurchase () throws Exception {
-		Purchase purchase = new Purchase(0, 10);
-		purchase.setId(1);
-		
-		try {
-			purchaseDAO.update(purchase);
-		} catch (Exception e) {
-			assertEquals("", e.getMessage());
-		}
-	}
-	
-	@Test
 	public void testShouldDeletePurchase () throws Exception {
 		try {
 			purchaseDAO.delete(1);

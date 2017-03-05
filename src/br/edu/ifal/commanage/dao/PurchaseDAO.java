@@ -57,34 +57,13 @@ public class PurchaseDAO {
 		return purchases;
 	}
 	
-	public void update (Purchase purchase) throws SQLException {
-		Connection con = ConnectionFactory.getConnection();
-		PreparedStatement stmt= null;
-		
-		try {
-			String sql = "UPDATE purchases SET productId = ?, quantity = ? WHERE id = ?";
-			stmt = con.prepareStatement(sql);
-			
-			stmt.setInt(1, purchase.getProductId());
-			stmt.setInt(2, purchase.getQuantity());
-			stmt.setInt(3, purchase.getId());
-			
-			stmt.executeUpdate();
-		} catch (SQLException e) {
-			throw new SQLException ("Error while updating");
-		} finally {
-			ConnectionFactory.closeConnection(con, stmt);
-		}
-	}
-	
 	public void delete (int purchaseId) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
 		try {
 			String sql = "DELETE FROM purchases WHERE id = ?";
-			stmt = con.prepareStatement(sql);
-			
+			stmt = con.prepareStatement(sql);	
 			stmt.setInt(1, purchaseId);
 			
 			stmt.executeUpdate();

@@ -57,8 +57,7 @@
                   </GridPane>
                   <Group layoutX="129.0" layoutY="311.0">
                      <children>
-                     	<Button layoutX="0" mnemonicParsing="false" onAction="#handleButtonCreate" prefHeight="25.0" prefWidth="64.0" text="Inserir" />
-                        <Button layoutX="70" mnemonicParsing="false" onAction="#handleButtonUpdate" prefHeight="25.0" prefWidth="64.0" text="Alterar" />
+                     	<Button layoutX="63.0" mnemonicParsing="false" onAction="#handleButtonCreate" prefHeight="25.0" prefWidth="64.0" text="Inserir" />
                         <Button layoutX="140" mnemonicParsing="false" onAction="#handleButtonDelete" prefHeight="25.0" prefWidth="64.0" text="Remover" />
                      </children>
                   </Group>  

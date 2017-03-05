@@ -13,6 +13,11 @@ public class Product {
 		this.salePrice = salePrice;
 	}
 	
+	@Override
+	public String toString() {
+		return getName();
+	}
+	
 	public int getId () {
 		return id;
 	}

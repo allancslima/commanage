@@ -87,10 +87,6 @@ public class Company {
 		purchaseDAO.create(purchase);
 	}
 	
-	public void updatePurchase (Purchase purchase) throws SQLException {
-		purchaseDAO.update(purchase);
-	}
-	
 	/* public boolean removePurchase (Purchase purchase) {
 		return purchases.remove(purchase);
 	} */

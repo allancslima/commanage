@@ -97,4 +97,32 @@ public class ProductDAO {
 			ConnectionFactory.closeConnection(con, stmt);
 		}
 	}
+	
+	public Product findById (int productId) throws SQLException {
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		Product product = new Product("", 0, 0);
+		
+		try {
+			String sql = "SELECT * FROM products WHERE id = ?";
+			stmt = con.prepareStatement(sql);
+			stmt.setInt(1, productId);
+			rs = stmt.executeQuery();
+			
+			rs.beforeFirst();
+			while (rs.next()) {
+				product.setId(rs.getInt("id"));
+				product.setName(rs.getString("name"));
+				product.setPurchasePrice(rs.getDouble("purchasePrice"));
+				product.setSalePrice(rs.getDouble("salePrice"));
+			}
+		} catch (SQLException e) {
+			throw new SQLException("Error while reading product");
+		} finally {
+			ConnectionFactory.closeConnection(con, stmt, rs);
+		}
+		
+		return product;
+	}
 }
