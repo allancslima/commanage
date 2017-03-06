@@ -24,7 +24,8 @@ public class CompanyBOPurchase {
 			throw new CompanyBOException("Invalid purchase");
 	}
 	
-	/* public boolean removePurchase (Purchase purchase) throws CompanyBOException {
-		return company.removePurchase(purchase);
-	} */
+	public void removePurchase (Purchase purchase) throws SQLException {
+		// return company.removePurchase(purchase);
+		company.removePurchase(purchase);
+	}
 }

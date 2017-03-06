@@ -48,16 +48,13 @@ public class Stock {
 		
 		int productId = sale.getProductId();
 		int quantityToRemove = sale.getQuantity();
-		System.out.println("OK");
+		
 		if (quantityToRemove <= getProductQuantity(productId)) {
-			System.out.println("OKK");
 			int productQuantity = getProductQuantity(productId);
 			stockDAO.update(productId, productQuantity - quantityToRemove);
 		} else {
-			System.out.println("OKKK");
 			throw new Exception("Insufficient stock");
 		}
-		
 	}
 	
 	public void updateStockForRemovedProcess (Sale sale) throws SQLException {

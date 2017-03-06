@@ -18,14 +18,15 @@ public class CompanyBOSale {
 		return company.getSaleQuantity();
 	} */
 	
-	public void validateAddSale (Sale sale) throws CompanyBOException, SQLException {
+	public void validateAddSale (Sale sale) throws Exception {
 		if (sale.getQuantity() > 0)
 			company.addSale(sale);
 		else
 			throw new CompanyBOException("Invalid sale");
 	}
 	
-	/* public boolean removeSale (Sale sale) throws CompanyBOException {
-		return company.removeSale(sale);
-	} */
+	public void removeSale (Sale sale) throws SQLException {
+		// return company.removeSale(sale);
+		company.removeSale(sale);
+	}
 }

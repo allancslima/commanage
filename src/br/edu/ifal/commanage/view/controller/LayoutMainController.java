@@ -24,6 +24,8 @@ public class LayoutMainController implements Initializable {
 	@FXML
 	private MenuItem menuItemRegistrationSales;
 	@FXML
+	private MenuItem menuItemStock;
+	@FXML
 	private AnchorPane anchorPane;
 	
 	@Override
@@ -52,6 +54,12 @@ public class LayoutMainController implements Initializable {
 	@FXML
 	public void handleMenuItemRegistrationSales () throws IOException {
 		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutSales.fxml"));
+		anchorPane.getChildren().setAll(a);
+	}
+	
+	@FXML
+	public void handleMenuItemStock () throws IOException {
+		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutStock.fxml"));
 		anchorPane.getChildren().setAll(a);
 	}
 }

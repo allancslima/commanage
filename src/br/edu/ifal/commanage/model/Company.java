@@ -87,11 +87,12 @@ public class Company {
 	public void addPurchase (Purchase purchase) throws SQLException {
 		// purchases.add(purchase);
 		purchaseDAO.create(purchase);
-		// stock.updateStockForAddedProccess(purchase);
+		stock.updateStockForAddedProccess(purchase);
 	}
 	
 	public void removePurchase (Purchase purchase) throws SQLException {
 		// return purchases.remove(purchase);
+		purchaseDAO.delete(purchase.getId());
 		stock.updateStockForRemovedProcess(purchase);
 	}
 	
@@ -99,12 +100,19 @@ public class Company {
 		return sales.size();
 	} */
 
-	public void addSale (Sale sale) throws SQLException {
+	public void addSale (Sale sale) throws Exception {
 		// sales.add(sale);
-		saleDAO.create(sale);
+		try {
+			stock.updateStockForAddedProccess(sale);
+			saleDAO.create(sale);
+		} catch (Exception e) {
+			throw new Exception("Error while add sale");
+		}
 	}
 	
-	/* public boolean removeSale (Sale sale) {
-		return sales.remove(sale);
-	} */
+	public void removeSale (Sale sale) throws SQLException {
+		// return sales.remove(sale);
+		saleDAO.delete(sale.getId());
+		stock.updateStockForRemovedProcess(sale);
+	}
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifal.commanage.view.controller.LayoutStockController">
+   <children>
+      <Label layoutX="217.0" layoutY="14.0" text="Estoque de produtos">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableViewStock" layoutX="140.0" layoutY="50.0" prefHeight="297.0" prefWidth="321.0">
+        <columns>
+          <TableColumn fx:id="tableColumnProductName" prefWidth="75.0" text="Produto" />
+          <TableColumn fx:id="tableColumnProductQuantity" prefWidth="75.0" text="Quantidade" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>

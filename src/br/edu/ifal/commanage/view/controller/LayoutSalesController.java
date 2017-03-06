@@ -5,8 +5,11 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import br.edu.ifal.commanage.bo.CompanyBOSale;
 import br.edu.ifal.commanage.dao.ProductDAO;
 import br.edu.ifal.commanage.dao.SaleDAO;
+import br.edu.ifal.commanage.model.Company;
 import br.edu.ifal.commanage.model.Sale;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -117,8 +120,8 @@ public class LayoutSalesController implements Initializable {
 		if (isNullSale(sale)) {
 			alert();
 		} else {
-			SaleDAO saleDAO = new SaleDAO();
-			saleDAO.delete(sale.getId());
+			CompanyBOSale companyBOSale = new CompanyBOSale(new Company());
+			companyBOSale.removeSale(sale);
 			loadTableViewSales();
 		}
 	}

@@ -5,9 +5,10 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
-
+import br.edu.ifal.commanage.bo.CompanyBOPurchase;
 import br.edu.ifal.commanage.dao.ProductDAO;
 import br.edu.ifal.commanage.dao.PurchaseDAO;
+import br.edu.ifal.commanage.model.Company;
 import br.edu.ifal.commanage.model.Purchase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -118,8 +119,8 @@ public class LayoutPurchasesController implements Initializable {
 		if (isNullPurchase(purchase)) {
 			alert();
 		} else {
-			PurchaseDAO purchaseDAO = new PurchaseDAO();
-			purchaseDAO.delete(purchase.getId());
+			CompanyBOPurchase companyBOPurchase = new CompanyBOPurchase(new Company());
+			companyBOPurchase.removePurchase(purchase);
 			loadTableViewPurchases();
 		}
 	}
