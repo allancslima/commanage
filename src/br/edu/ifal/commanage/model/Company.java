@@ -86,6 +86,7 @@ public class Company {
 		// return products.remove(product);
 		productDAO.delete(productId);
 		purchaseDAO.productDeleted(productId);
+		saleDAO.productDeleted(productId);
 	}
 	
 	/* public int getPurchaseQuantity () {

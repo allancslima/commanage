@@ -95,4 +95,21 @@ public class SaleDAO {
 			ConnectionFactory.closeConnection(con, stmt);
 		}
 	}
+	
+	public void productDeleted(int productId) throws SQLException {
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		
+		try {
+			String sql = "DELETE FROM sales WHERE productId = ?";
+			stmt = con.prepareStatement(sql);	
+			stmt.setInt(1, productId);
+			
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new SQLException ("Error while deleting");
+		} finally {
+			ConnectionFactory.closeConnection(con, stmt);
+		}
+	}
 }
