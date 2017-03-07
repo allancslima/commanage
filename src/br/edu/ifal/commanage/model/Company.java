@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import br.edu.ifal.commanage.dao.EmployeeDAO;
 import br.edu.ifal.commanage.dao.ProductDAO;
+import br.edu.ifal.commanage.dao.ProviderDAO;
 import br.edu.ifal.commanage.dao.PurchaseDAO;
 import br.edu.ifal.commanage.dao.SaleDAO;
 import br.edu.ifal.commanage.util.exception.StockException;
@@ -21,6 +22,8 @@ public class Company {
 	private PurchaseDAO purchaseDAO = new PurchaseDAO();
 	// private ArrayList<Sale> sales = new ArrayList<>();
 	private SaleDAO saleDAO = new SaleDAO();
+	// private ArrayList<Provider> providers = new ArrayList<>();
+	private ProviderDAO providerDAO = new ProviderDAO();
 	
 	private Stock stock = new Stock();
 	
@@ -75,7 +78,7 @@ public class Company {
 		productDAO.create(product);
 	}
 	
-	public void updateProduct(Product product) throws SQLException {
+	public void updateProduct (Product product) throws SQLException {
 		productDAO.update(product);
 	}
 	
@@ -119,5 +122,23 @@ public class Company {
 		// return sales.remove(sale);
 		saleDAO.delete(sale.getId());
 		stock.updateStockForRemovedProcess(sale);
+	}
+	
+	/* public int getQuantityProvider () {
+		return providers.size();
+	} */
+	
+	public void addProvider (Provider provider) throws SQLException {
+		// providers.add(product);
+		providerDAO.create(provider);
+	}
+	
+	public void updateProvider (Provider provider) throws SQLException {
+		providerDAO.update(provider);
+	}
+	
+	public void removeProvider (int providerId) throws SQLException {
+		// return providers.remove(provider);
+		providerDAO.delete(providerId);
 	}
 }
