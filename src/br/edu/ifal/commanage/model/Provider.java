@@ -1,14 +1,13 @@
 package br.edu.ifal.commanage.model;
 
-public class Employee implements IAuthenticable {
+public class Provider {
 	
 	private int id;
 	private String name;
-	protected String function;
 	private String phone;
 	private String email;
 	
-	public Employee (String name, String phone, String email) {
+	public Provider (String name, String phone, String email) {
 		setName(name);
 		setPhone(phone);
 		setEmail(email);
@@ -23,39 +22,26 @@ public class Employee implements IAuthenticable {
 	}
 	
 	public String getName () {
-		return name;	
+		return name;
 	}
-	
+
 	public void setName (String name) {
 		this.name = name;
 	}
-	
-	public String getFunction () {
-		return function;
-	}
-	
-	public void setFunction (String function) {
-		this.setFunction(function);
-	}
-	
+
 	public String getPhone () {
 		return phone;
 	}
-	
+
 	public void setPhone (String phone) {
 		this.phone = phone;
 	}
-	
+
 	public String getEmail () {
 		return email;
 	}
-	
+
 	public void setEmail (String email) {
 		this.email = email;
-	}
-
-	@Override
-	public boolean authenticate (String password) {
-		return false;
 	}
 }
