@@ -57,7 +57,7 @@ public class LayoutProductController implements Initializable {
 	
 	public void loadTableViewProduct () {
 		tableColumnNameProduct.setCellValueFactory(new PropertyValueFactory<>("name"));
-		tableColumnCategoryProduct.setCellValueFactory(new PropertyValueFactory<>("id"));
+		tableColumnCategoryProduct.setCellValueFactory(new PropertyValueFactory<>("category"));
 		
 		try {
 			products = productDAO.read();
@@ -73,7 +73,7 @@ public class LayoutProductController implements Initializable {
 		if (product != null) {
 			labelProductID.setText(String.valueOf(product.getId()));
 			labelNameProduct.setText(product.getName());
-			//labelCategoryProduct.setText(product.getCategory());
+			labelCategoryProduct.setText(product.getCategory());
 			labelPurchasePriceProduct.setText("R$ " + String.valueOf(product.getPurchasePrice()));
 			labelSalePriceProduct.setText("R$ " + String.valueOf(product.getSalePrice()));
 		} else {
@@ -87,7 +87,7 @@ public class LayoutProductController implements Initializable {
 	
 	public boolean showLayoutProductDialog (Product product) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(LayoutProductDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutProductsDialog.fxml"));
+		loader.setLocation(LayoutProductDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutProductDialog.fxml"));
 		
 		AnchorPane page = loader.load();
 		Scene scene = new Scene(page);
@@ -106,7 +106,7 @@ public class LayoutProductController implements Initializable {
 	
 	@FXML
 	public void handleButtonCreate () throws IOException {
-		Product product = new Product("", 0, 0);
+		Product product = new Product("", "", 0, 0);
 		boolean isButtonConfirmClicked = showLayoutProductDialog(product);
 		
 		if (isButtonConfirmClicked) loadTableViewProduct();

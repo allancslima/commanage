@@ -30,7 +30,7 @@ public class Employee {
 		this.name = name;
 	}
 	
-	public String getFuncion () {
+	public String getFunction () {
 		return function;
 	}
 	

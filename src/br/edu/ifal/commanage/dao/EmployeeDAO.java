@@ -23,7 +23,7 @@ public class EmployeeDAO {
 			stmt = con.prepareStatement(sql);
 			
 			stmt.setString(1, employee.getName());
-			stmt.setString(2, employee.getFuncion());
+			stmt.setString(2, employee.getFunction());
 			stmt.setString(3, employee.getPhone());
 			stmt.setString(4, employee.getEmail());
 			
@@ -48,7 +48,7 @@ public class EmployeeDAO {
 			
 			while (rs.next()) {
 				Employee employee;
-				if (rs.getString("function") == "Gerente") {
+				if (rs.getString("function").toString().equals("Gerente")) {
 					employee = new Manager(rs.getString("name"), rs.getString("phone"), rs.getString("email"));
 					employee.setId(rs.getInt("id"));
 				} else {
@@ -75,7 +75,7 @@ public class EmployeeDAO {
 			stmt = con.prepareStatement(sql);
 			
 			stmt.setString(1, employee.getName());
-			stmt.setString(2, employee.getFuncion());
+			stmt.setString(2, employee.getFunction());
 			stmt.setString(3, employee.getPhone());
 			stmt.setString(4, employee.getEmail());
 			stmt.setInt(5, employee.getId());

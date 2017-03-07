@@ -11,7 +11,7 @@ public class ProductDAOTest extends TestCase {
 	
 	@Test
 	public void testShouldCreateEmployee () throws Exception {
-		Product product = new Product("Oracle", 10.0, 15.0);
+		Product product = new Product("Oracle", "DB", 10.0, 15.0);
 
 		try {
 			productDAO.create(product);
@@ -31,7 +31,7 @@ public class ProductDAOTest extends TestCase {
 	
 	@Test
 	public void testShouldUpdateEmployee () throws Exception {
-		Product product = new Product("Oracle", 10.0, 14.0);
+		Product product = new Product("Oracle", "DB", 10.0, 14.0);
 		product.setId(1);
 		
 		try {

@@ -18,7 +18,7 @@ public class CompanyBOProductTest extends TestCase {
 	
 	@Test
 	public void testShouldNotValidateAddProductIfIncorrectData () throws Exception {
-		Product product = new Product("oracle", 0, -1);
+		Product product = new Product("oracle", "database", 0, -1);
 		
 		try {
 			companyBOProduct.validateAddProduct(product);
@@ -29,7 +29,7 @@ public class CompanyBOProductTest extends TestCase {
 	
 	@Test
 	public void testShouldValidateAddProductIfCorrectData () throws Exception {
-		Product product = new Product("Oracle", 1.5, 2.0);
+		Product product = new Product("Oracle", "Database", 1.5, 2.0);
 		
 		try {
 			companyBOProduct.validateAddProduct(product);

@@ -12,6 +12,8 @@ public class LayoutProductDialogController {
 	@FXML
 	private TextField textFieldNameProduct;
 	@FXML
+	private TextField textFieldCategoryProduct;
+	@FXML
 	private TextField textFieldPurchasePriceProduct;
 	@FXML
 	private TextField textFieldSalePriceProduct;
@@ -35,6 +37,7 @@ public class LayoutProductDialogController {
 	
 	public void initializeTextFields () {
 		textFieldNameProduct.setText(product.getName());
+		textFieldCategoryProduct.setText(product.getCategory());
 		textFieldPurchasePriceProduct.setText(String.valueOf(product.getPurchasePrice()));
 		textFieldSalePriceProduct.setText(String.valueOf(product.getSalePrice()));
 	}
@@ -46,6 +49,7 @@ public class LayoutProductDialogController {
 	@FXML
 	public void handleButtonConfirm () {
 		product.setName(textFieldNameProduct.getText());
+		product.setCategory(textFieldCategoryProduct.getText());
 		product.setPurchasePrice(Double.parseDouble(textFieldPurchasePriceProduct.getText()));
 		product.setSalePrice(Double.parseDouble(textFieldSalePriceProduct.getText()));
 		

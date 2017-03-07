@@ -63,7 +63,7 @@ public class LayoutEmployeeDialogController implements Initializable {
 	
 	public void initializeTextFields () {
 		textFieldNameEmployee.setText(employee.getName());
-		comboBoxEmployeeFunctions.setValue(employee.getFuncion());
+		comboBoxEmployeeFunctions.setValue(employee.getFunction());
 		textFieldPhoneEmployee.setText(employee.getPhone());
 		textFieldEmailEmployee.setText(employee.getEmail());
 	}

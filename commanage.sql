@@ -16,6 +16,7 @@ create table `employees` (
 create table `products` (
 	`id` int not null auto_increment,
 	`name` varchar(20) not null,
+    `category` varchar(20),
     `purchasePrice` double not null,
     `salePrice` double not null,
     primary key(id)

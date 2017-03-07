@@ -17,12 +17,13 @@ public class ProductDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			String sql = "INSERT INTO products (name, purchasePrice, salePrice) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO products (name, category, purchasePrice, salePrice) VALUES (?, ?, ?, ?)";
 			stmt = con.prepareStatement(sql);
 			
 			stmt.setString(1, product.getName());
-			stmt.setDouble(2, product.getPurchasePrice());
-			stmt.setDouble(3, product.getSalePrice());
+			stmt.setString(2, product.getCategory());
+			stmt.setDouble(3, product.getPurchasePrice());
+			stmt.setDouble(4, product.getSalePrice());
 			
 			stmt.executeUpdate();
 		} catch (SQLException e) {
@@ -45,6 +46,7 @@ public class ProductDAO {
 			
 			while (rs.next()) {
 				Product product = new Product(rs.getString("name"),
+											  rs.getString("category"),
 											  rs.getDouble("purchasePrice"),
 											  rs.getDouble("salePrice"));
 				product.setId(rs.getInt("id"));
@@ -65,13 +67,14 @@ public class ProductDAO {
 		PreparedStatement stmt= null;
 		
 		try {
-			String sql = "UPDATE products SET name = ?, purchasePrice = ?, salePrice = ? WHERE id = ?";
+			String sql = "UPDATE products SET name = ?, category = ?, purchasePrice = ?, salePrice = ? WHERE id = ?";
 			stmt = con.prepareStatement(sql);
 			
 			stmt.setString(1, product.getName());
-			stmt.setDouble(2, product.getPurchasePrice());
-			stmt.setDouble(3, product.getSalePrice());
-			stmt.setInt(4, product.getId());
+			stmt.setString(2, product.getCategory());
+			stmt.setDouble(3, product.getPurchasePrice());
+			stmt.setDouble(4, product.getSalePrice());
+			stmt.setInt(5, product.getId());
 			
 			stmt.executeUpdate();
 		} catch (SQLException e) {
@@ -103,7 +106,7 @@ public class ProductDAO {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		Product product = new Product("", 0, 0);
+		Product product = new Product("", "", 0, 0);
 		
 		try {
 			String sql = "SELECT * FROM products WHERE id = ?";
@@ -115,6 +118,7 @@ public class ProductDAO {
 			while (rs.next()) {
 				product.setId(rs.getInt("id"));
 				product.setName(rs.getString("name"));
+				product.setCategory(rs.getString("category"));
 				product.setPurchasePrice(rs.getDouble("purchasePrice"));
 				product.setSalePrice(rs.getDouble("salePrice"));
 			}

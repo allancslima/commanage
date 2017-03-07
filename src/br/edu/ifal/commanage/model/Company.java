@@ -82,6 +82,7 @@ public class Company {
 	public void removeProduct (int productId) throws SQLException {
 		// return products.remove(product);
 		productDAO.delete(productId);
+		purchaseDAO.productDeleted(productId);
 	}
 	
 	/* public int getPurchaseQuantity () {

@@ -73,7 +73,7 @@ public class LayoutEmployeeController implements Initializable {
 		if (employee != null) {
 			labelEmployeeID.setText(String.valueOf(employee.getId()));
 			labelNameEmployee.setText(employee.getName());
-			labelFunctionEmployee.setText(employee.getFuncion());
+			labelFunctionEmployee.setText(employee.getFunction());
 			labelPhoneEmployee.setText(employee.getPhone());
 			labelEmailEmployee.setText(employee.getEmail());
 		} else {

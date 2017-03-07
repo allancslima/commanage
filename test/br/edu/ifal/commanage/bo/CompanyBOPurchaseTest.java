@@ -19,7 +19,7 @@ public class CompanyBOPurchaseTest extends TestCase {
 	
 	@Test
 	public void testShouldNotValidateAddSaleIfIncorrectData () throws Exception {
-		Product product = new Product("Oracle", 1, 2);
+		Product product = new Product("Oracle", "DB", 1, 2);
 		Purchase purchase = new Purchase(product.getId(), 0);
 		
 		try {
@@ -31,7 +31,7 @@ public class CompanyBOPurchaseTest extends TestCase {
 	
 	@Test
 	public void testShouldValidateAddSaleIfCorrectData () throws Exception {
-		Product product = new Product("Oracle", 1, 2);
+		Product product = new Product("Oracle", "DB", 1, 2);
 		Purchase purchase = new Purchase(product.getId(), 10);
 		
 		try {

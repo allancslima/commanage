@@ -21,15 +21,17 @@ public class CompanyBOProduct {
 	
 	public void validateAddProduct (Product product) throws CompanyBOException, SQLException {
 		if (FieldValidation.isValidName(product.getName()) && 
+			FieldValidation.isValidName(product.getCategory()) &&
 			product.getPurchasePrice() > 0 && product.getSalePrice() > 0)
-			company.addProduct(product);
+				company.addProduct(product);
 		else
 			throw new CompanyBOException("Invalid product");
 	}
 	
 	public void validateUpdateProduct(Product product) throws CompanyBOException, SQLException {
 		if (FieldValidation.isValidName(product.getName()) && 
-				product.getPurchasePrice() > 0 && product.getSalePrice() > 0)
+			FieldValidation.isValidName(product.getCategory()) && 
+			product.getPurchasePrice() > 0 && product.getSalePrice() > 0)
 				company.updateProduct(product);
 		else
 			throw new CompanyBOException("Invalid product");
