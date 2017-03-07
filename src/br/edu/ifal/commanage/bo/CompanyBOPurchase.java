@@ -1,9 +1,10 @@
 package br.edu.ifal.commanage.bo;
 
+import java.sql.SQLException;
+
 import br.edu.ifal.commanage.model.Company;
 import br.edu.ifal.commanage.model.Purchase;
 import br.edu.ifal.commanage.util.exception.CompanyBOException;
-import java.sql.SQLException;
 
 public class CompanyBOPurchase {
 	

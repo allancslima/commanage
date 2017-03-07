@@ -1,10 +1,11 @@
 package br.edu.ifal.commanage.dao;
 
-import junit.framework.TestCase;
 import org.junit.Test;
+
 import br.edu.ifal.commanage.model.Employee;
 import br.edu.ifal.commanage.model.Manager;
 import br.edu.ifal.commanage.model.Salesperson;
+import junit.framework.TestCase;
 
 public class EmployeeDAOTest extends TestCase {
 	

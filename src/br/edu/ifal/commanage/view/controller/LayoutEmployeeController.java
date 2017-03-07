@@ -1,8 +1,15 @@
 package br.edu.ifal.commanage.view.controller;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import br.edu.ifal.commanage.bo.CompanyBOEmployee;
+import br.edu.ifal.commanage.dao.EmployeeDAO;
+import br.edu.ifal.commanage.model.Company;
+import br.edu.ifal.commanage.model.Employee;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,15 +23,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import br.edu.ifal.commanage.dao.EmployeeDAO;
-import br.edu.ifal.commanage.model.Employee;
-import java.io.IOException;
-import java.sql.SQLException;
 
-public class LayoutEmployeesController implements Initializable {
+public class LayoutEmployeeController implements Initializable {
 	
 	@FXML
-	private TableView<Employee> tableViewEmployees;
+	private TableView<Employee> tableViewEmployee;
 	@FXML
 	private TableColumn<Employee, String> tableColumnNameEmployee;
 	@FXML
@@ -42,17 +45,17 @@ public class LayoutEmployeesController implements Initializable {
 	
 	private EmployeeDAO employeeDAO = new EmployeeDAO();
 	private List<Employee> employees;
-	private ObservableList<Employee> observableListEmployees;
+	private ObservableList<Employee> observableListEmployee;
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		loadTableViewEmployees();
+		loadTableViewEmployee();
 		
-		tableViewEmployees.getSelectionModel().selectedItemProperty().addListener(
-				(observable, oldValue, newValue) -> selectItemTableViewEmployees(newValue));
+		tableViewEmployee.getSelectionModel().selectedItemProperty().addListener(
+				(observable, oldValue, newValue) -> selectItemTableViewEmployee(newValue));
 	}
 	
-	public void loadTableViewEmployees ()  {
+	public void loadTableViewEmployee ()  {
 		tableColumnNameEmployee.setCellValueFactory(new PropertyValueFactory<>("name"));
 		tableColumnFunctionEmployee.setCellValueFactory(new PropertyValueFactory<>("function"));
 		
@@ -62,11 +65,11 @@ public class LayoutEmployeesController implements Initializable {
 			System.out.println(e.getMessage());
 		}
 		
-		observableListEmployees = FXCollections.observableArrayList(employees);
-		tableViewEmployees.setItems(observableListEmployees);
+		observableListEmployee = FXCollections.observableArrayList(employees);
+		tableViewEmployee.setItems(observableListEmployee);
 	}
 
-	public void selectItemTableViewEmployees (Employee employee) {
+	public void selectItemTableViewEmployee (Employee employee) {
 		if (employee != null) {
 			labelEmployeeID.setText(String.valueOf(employee.getId()));
 			labelNameEmployee.setText(employee.getName());
@@ -82,9 +85,9 @@ public class LayoutEmployeesController implements Initializable {
 		}
 	}
 	
-	public boolean showLayoutEmployeesDialog (Employee employee) throws IOException {
+	public boolean showLayoutEmployeeDialog (Employee employee) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(LayoutEmployeesDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutEmployeesDialog.fxml"));
+		loader.setLocation(LayoutEmployeeDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutEmployeeDialog.fxml"));
 		
 		AnchorPane page = loader.load();
 		Scene scene = new Scene(page);
@@ -92,7 +95,7 @@ public class LayoutEmployeesController implements Initializable {
 		Stage dialogStage = new Stage();
 		dialogStage.setScene(scene);
 		
-		LayoutEmployeesDialogController controller = loader.getController();
+		LayoutEmployeeDialogController controller = loader.getController();
 		controller.setDialogStage(dialogStage);
 		controller.setEmployee(employee);
 		
@@ -104,33 +107,33 @@ public class LayoutEmployeesController implements Initializable {
 	@FXML
 	public void handleButtonCreate () throws IOException {
 		Employee employee = null;
-		boolean isButtonConfirmClicked = showLayoutEmployeesDialog(employee);
+		boolean isButtonConfirmClicked = showLayoutEmployeeDialog(employee);
 		
-		if (isButtonConfirmClicked) loadTableViewEmployees();
+		if (isButtonConfirmClicked) loadTableViewEmployee();
 	}
 	
 	@FXML
 	public void handleButtonUpdate () throws IOException {
-		Employee employee = tableViewEmployees.getSelectionModel().getSelectedItem();
+		Employee employee = tableViewEmployee.getSelectionModel().getSelectedItem();
 		
 		if (isNullEmployee(employee)) {
 			alert();
 		} else {
-			boolean isButtonConfirmClicked = showLayoutEmployeesDialog(employee);
-			if (isButtonConfirmClicked) loadTableViewEmployees();
+			boolean isButtonConfirmClicked = showLayoutEmployeeDialog(employee);
+			if (isButtonConfirmClicked) loadTableViewEmployee();
 		}
 	}
 	
 	@FXML
 	public void handleButtonDelete () throws SQLException {
-		Employee employee = tableViewEmployees.getSelectionModel().getSelectedItem();
+		Employee employee = tableViewEmployee.getSelectionModel().getSelectedItem();
 		
 		if (isNullEmployee(employee)) {
 			alert();
 		} else {
-			EmployeeDAO employeDAO = new EmployeeDAO();
-			employeDAO.delete(employee.getId());
-			loadTableViewEmployees();
+			CompanyBOEmployee companyBOEmployee = new CompanyBOEmployee(new Company());
+			companyBOEmployee.removeEmployee(employee);
+			loadTableViewEmployee();
 		}
 	}
 	

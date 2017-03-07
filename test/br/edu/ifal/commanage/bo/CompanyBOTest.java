@@ -1,8 +1,9 @@
 package br.edu.ifal.commanage.bo;
 
-import junit.framework.TestCase;
 import org.junit.Test;
+
 import br.edu.ifal.commanage.model.Company;
+import junit.framework.TestCase;
 
 public class CompanyBOTest extends TestCase {
 	

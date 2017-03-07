@@ -1,9 +1,10 @@
 package br.edu.ifal.commanage.connection;
 
-import junit.framework.TestCase;
-import org.junit.Test;
 import java.sql.Connection;
-import br.edu.ifal.commanage.connection.ConnectionFactory;
+
+import org.junit.Test;
+
+import junit.framework.TestCase;
 
 public class ConnectionFactoryTest extends TestCase {
 	

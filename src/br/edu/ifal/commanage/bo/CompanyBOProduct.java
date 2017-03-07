@@ -1,10 +1,11 @@
 package br.edu.ifal.commanage.bo;
 
+import java.sql.SQLException;
+
 import br.edu.ifal.commanage.model.Company;
 import br.edu.ifal.commanage.model.Product;
 import br.edu.ifal.commanage.util.FieldValidation;
 import br.edu.ifal.commanage.util.exception.CompanyBOException;
-import java.sql.SQLException;
 
 public class CompanyBOProduct {
 	
@@ -34,7 +35,8 @@ public class CompanyBOProduct {
 			throw new CompanyBOException("Invalid product");
 	}
 	
-	/* public boolean removeProduct (Product product) {
-		return company.removeProduct(product);
-	} */
+	public void removeProduct (Product product) throws SQLException {
+		// return company.removeProduct(productId);
+		company.removeProduct(product.getId());
+	}
 }

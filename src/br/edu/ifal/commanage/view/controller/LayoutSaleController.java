@@ -25,10 +25,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class LayoutSalesController implements Initializable {
+public class LayoutSaleController implements Initializable {
 	
 	@FXML
-	private TableView<Sale> tableViewSales;
+	private TableView<Sale> tableViewSale;
 	@FXML
 	private TableColumn<Sale, String> tableColumnNameProductSale;
 	@FXML
@@ -42,13 +42,13 @@ public class LayoutSalesController implements Initializable {
 	
 	private SaleDAO saleDAO = new SaleDAO();
 	private List<Sale> sales;
-	private ObservableList<Sale> observableListSales;
+	private ObservableList<Sale> observableListSale;
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		loadTableViewSales();
 		
-		tableViewSales.getSelectionModel().selectedItemProperty().addListener(
+		tableViewSale.getSelectionModel().selectedItemProperty().addListener(
 				(observable, oldValue, newValue) -> selectItemTableViewSales(newValue));
 	}
 	
@@ -62,8 +62,8 @@ public class LayoutSalesController implements Initializable {
 			System.out.println(e.getMessage());
 		}
 		
-		observableListSales = FXCollections.observableArrayList(sales);
-		tableViewSales.setItems(observableListSales);
+		observableListSale = FXCollections.observableArrayList(sales);
+		tableViewSale.setItems(observableListSale);
 	}
 	
 	public void selectItemTableViewSales (Sale sale) {
@@ -88,7 +88,7 @@ public class LayoutSalesController implements Initializable {
 	
 	public boolean showLayoutSalesDialog (Sale sale) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(LayoutSalesDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutSalesDialog.fxml"));
+		loader.setLocation(LayoutSaleDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutSaleDialog.fxml"));
 		
 		AnchorPane page = loader.load();
 		Scene scene = new Scene(page);
@@ -96,7 +96,7 @@ public class LayoutSalesController implements Initializable {
 		Stage dialogStage = new Stage();
 		dialogStage.setScene(scene);
 		
-		LayoutSalesDialogController controller = loader.getController();
+		LayoutSaleDialogController controller = loader.getController();
 		controller.setDialogStage(dialogStage);
 		controller.setSale(sale);
 		
@@ -115,7 +115,7 @@ public class LayoutSalesController implements Initializable {
 	
 	@FXML
 	public void handleButtonDelete () throws SQLException {
-		Sale sale = tableViewSales.getSelectionModel().getSelectedItem();
+		Sale sale = tableViewSale.getSelectionModel().getSelectedItem();
 		
 		if (isNullSale(sale)) {
 			alert();

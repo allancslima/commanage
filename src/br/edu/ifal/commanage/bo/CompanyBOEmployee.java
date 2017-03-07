@@ -1,10 +1,11 @@
 package br.edu.ifal.commanage.bo;
 
+import java.sql.SQLException;
+
 import br.edu.ifal.commanage.model.Company;
 import br.edu.ifal.commanage.model.Employee;
 import br.edu.ifal.commanage.util.FieldValidation;
 import br.edu.ifal.commanage.util.exception.CompanyBOException;
-import java.sql.SQLException;
 
 public class CompanyBOEmployee {
 	
@@ -36,7 +37,8 @@ public class CompanyBOEmployee {
 		  throw new CompanyBOException("Invalid employee");
 	}
 	
-	/* public boolean removeEmployee (Employee employee) {
-		return company.removeEmployee(employee);
-	} */
+	public void removeEmployee (Employee employee) throws SQLException {
+		// return company.removeEmployee(employee);
+		company.removeEmployee(employee.getId());
+	}
 }

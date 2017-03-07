@@ -1,9 +1,11 @@
 package br.edu.ifal.commanage.model;
 
-import java.util.Map;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Map;
+
 import br.edu.ifal.commanage.dao.StockDAO;
+import br.edu.ifal.commanage.util.exception.StockException;
 
 public class Stock {
 	
@@ -43,7 +45,7 @@ public class Stock {
 		stockDAO.update(productId, productQuantity - quantityToRemove);
 	}
 	
-	public void updateStockForAddedProccess (Sale sale) throws Exception, SQLException {
+	public void updateStockForAddedProccess (Sale sale) throws StockException, SQLException {
 		loadMapProducts();
 		
 		int productId = sale.getProductId();
@@ -53,7 +55,7 @@ public class Stock {
 			int productQuantity = getProductQuantity(productId);
 			stockDAO.update(productId, productQuantity - quantityToRemove);
 		} else {
-			throw new Exception("Insufficient stock");
+			throw new StockException("Insufficient stock");
 		}
 	}
 	

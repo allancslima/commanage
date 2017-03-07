@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+
 import br.edu.ifal.commanage.connection.ConnectionFactory;
 
 public class StockDAO {

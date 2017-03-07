@@ -1,8 +1,15 @@
 package br.edu.ifal.commanage.view.controller;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import br.edu.ifal.commanage.bo.CompanyBOProduct;
+import br.edu.ifal.commanage.dao.ProductDAO;
+import br.edu.ifal.commanage.model.Company;
+import br.edu.ifal.commanage.model.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,15 +23,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import br.edu.ifal.commanage.dao.ProductDAO;
-import br.edu.ifal.commanage.model.Product;
-import java.io.IOException;
-import java.sql.SQLException;
 
-public class LayoutProductsController implements Initializable {
+public class LayoutProductController implements Initializable {
 	
 	@FXML
-	private TableView<Product> tableViewProducts;
+	private TableView<Product> tableViewProduct;
 	@FXML
 	private TableColumn<Product, String> tableColumnNameProduct;
 	@FXML
@@ -42,17 +45,17 @@ public class LayoutProductsController implements Initializable {
 	
 	private ProductDAO productDAO = new ProductDAO();
 	private List<Product> products;
-	private ObservableList<Product> observableListProducts;
+	private ObservableList<Product> observableListProduct;
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		loadTableViewProducts();
+		loadTableViewProduct();
 		
-		tableViewProducts.getSelectionModel().selectedItemProperty().addListener(
-				(observable, oldValue, newValue) -> selectItemTableViewProducts(newValue));
+		tableViewProduct.getSelectionModel().selectedItemProperty().addListener(
+				(observable, oldValue, newValue) -> selectItemTableViewProduct(newValue));
 	}
 	
-	public void loadTableViewProducts () {
+	public void loadTableViewProduct () {
 		tableColumnNameProduct.setCellValueFactory(new PropertyValueFactory<>("name"));
 		tableColumnCategoryProduct.setCellValueFactory(new PropertyValueFactory<>("id"));
 		
@@ -62,11 +65,11 @@ public class LayoutProductsController implements Initializable {
 			System.out.println(e.getMessage());
 		}
 		
-		observableListProducts = FXCollections.observableArrayList(products);
-		tableViewProducts.setItems(observableListProducts);
+		observableListProduct = FXCollections.observableArrayList(products);
+		tableViewProduct.setItems(observableListProduct);
 	}
 	
-	public void selectItemTableViewProducts (Product product) {
+	public void selectItemTableViewProduct (Product product) {
 		if (product != null) {
 			labelProductID.setText(String.valueOf(product.getId()));
 			labelNameProduct.setText(product.getName());
@@ -82,9 +85,9 @@ public class LayoutProductsController implements Initializable {
 		}
 	}
 	
-	public boolean showLayoutProductsDialog (Product product) throws IOException {
+	public boolean showLayoutProductDialog (Product product) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(LayoutProductsDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutProductsDialog.fxml"));
+		loader.setLocation(LayoutProductDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutProductsDialog.fxml"));
 		
 		AnchorPane page = loader.load();
 		Scene scene = new Scene(page);
@@ -92,7 +95,7 @@ public class LayoutProductsController implements Initializable {
 		Stage dialogStage = new Stage();
 		dialogStage.setScene(scene);
 		
-		LayoutProductsDialogController controller = loader.getController();
+		LayoutProductDialogController controller = loader.getController();
 		controller.setDialogStage(dialogStage);
 		controller.setProduct(product);
 		
@@ -104,33 +107,33 @@ public class LayoutProductsController implements Initializable {
 	@FXML
 	public void handleButtonCreate () throws IOException {
 		Product product = new Product("", 0, 0);
-		boolean isButtonConfirmClicked = showLayoutProductsDialog(product);
+		boolean isButtonConfirmClicked = showLayoutProductDialog(product);
 		
-		if (isButtonConfirmClicked) loadTableViewProducts();
+		if (isButtonConfirmClicked) loadTableViewProduct();
 	}
 	
 	@FXML
 	public void handleButtonUpdate () throws IOException {
-		Product product = tableViewProducts.getSelectionModel().getSelectedItem();
+		Product product = tableViewProduct.getSelectionModel().getSelectedItem();
 		
 		if (isNullProduct(product)) {
 			alert();
 		} else {
-			boolean isButtonConfirmClicked = showLayoutProductsDialog(product);
-			if (isButtonConfirmClicked) loadTableViewProducts();
+			boolean isButtonConfirmClicked = showLayoutProductDialog(product);
+			if (isButtonConfirmClicked) loadTableViewProduct();
 		}
 	}
 	
 	@FXML
 	public void handleButtonDelete () throws SQLException {
-		Product product = tableViewProducts.getSelectionModel().getSelectedItem();
+		Product product = tableViewProduct.getSelectionModel().getSelectedItem();
 		
 		if (isNullProduct(product)) {
 			alert();
 		} else {
-			ProductDAO productDAO = new ProductDAO();
-			productDAO.delete(product.getId());
-			loadTableViewProducts();
+			CompanyBOProduct companyBOProduct = new CompanyBOProduct(new Company());
+			companyBOProduct.removeProduct(product);
+			loadTableViewProduct();
 		}
 	}
 	

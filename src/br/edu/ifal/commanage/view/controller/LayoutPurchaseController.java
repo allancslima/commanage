@@ -5,6 +5,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+
 import br.edu.ifal.commanage.bo.CompanyBOPurchase;
 import br.edu.ifal.commanage.dao.ProductDAO;
 import br.edu.ifal.commanage.dao.PurchaseDAO;
@@ -24,10 +25,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class LayoutPurchasesController implements Initializable {
+public class LayoutPurchaseController implements Initializable {
 	
 	@FXML
-	private TableView<Purchase> tableViewPurchases;
+	private TableView<Purchase> tableViewPurchase;
 	@FXML
 	private TableColumn<Purchase, String> tableColumnNameProductPurchase;
 	@FXML
@@ -47,7 +48,7 @@ public class LayoutPurchasesController implements Initializable {
 	public void initialize(URL url, ResourceBundle rb) {
 		loadTableViewPurchases();
 		
-		tableViewPurchases.getSelectionModel().selectedItemProperty().addListener(
+		tableViewPurchase.getSelectionModel().selectedItemProperty().addListener(
 				(observable, oldValue, newValue) -> selectItemTableViewPurchases(newValue));
 	}
 	
@@ -62,7 +63,7 @@ public class LayoutPurchasesController implements Initializable {
 		}
 		
 		observableListPurchases = FXCollections.observableArrayList(purchases);
-		tableViewPurchases.setItems(observableListPurchases);
+		tableViewPurchase.setItems(observableListPurchases);
 	}
 	
 	public void selectItemTableViewPurchases (Purchase purchase) {
@@ -87,7 +88,7 @@ public class LayoutPurchasesController implements Initializable {
 	
 	public boolean showLayoutPurchasesDialog (Purchase purchase) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(LayoutPurchasesDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutPurchasesDialog.fxml"));
+		loader.setLocation(LayoutPurchaseDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutPurchaseDialog.fxml"));
 		
 		AnchorPane page = loader.load();
 		Scene scene = new Scene(page);
@@ -95,7 +96,7 @@ public class LayoutPurchasesController implements Initializable {
 		Stage dialogStage = new Stage();
 		dialogStage.setScene(scene);
 		
-		LayoutPurchasesDialogController controller = loader.getController();
+		LayoutPurchaseDialogController controller = loader.getController();
 		controller.setDialogStage(dialogStage);
 		controller.setPurchase(purchase);
 		
@@ -114,7 +115,7 @@ public class LayoutPurchasesController implements Initializable {
 	
 	@FXML
 	public void handleButtonDelete () throws SQLException {
-		Purchase purchase = tableViewPurchases.getSelectionModel().getSelectedItem();
+		Purchase purchase = tableViewPurchase.getSelectionModel().getSelectedItem();
 		
 		if (isNullPurchase(purchase)) {
 			alert();

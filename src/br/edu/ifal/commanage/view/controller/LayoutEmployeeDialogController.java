@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
 import br.edu.ifal.commanage.bo.CompanyBOEmployee;
 import br.edu.ifal.commanage.model.Company;
 import br.edu.ifal.commanage.model.Employee;
@@ -18,7 +19,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class LayoutEmployeesDialogController implements Initializable {
+public class LayoutEmployeeDialogController implements Initializable {
 	
 	@FXML
 	private TextField textFieldNameEmployee;

@@ -1,8 +1,9 @@
 package br.edu.ifal.commanage.dao;
 
-import junit.framework.TestCase;
 import org.junit.Test;
+
 import br.edu.ifal.commanage.model.Sale;
+import junit.framework.TestCase;
 
 public class SaleDAOTest extends TestCase {
 	

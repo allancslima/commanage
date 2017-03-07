@@ -3,11 +3,12 @@ package br.edu.ifal.commanage.view.controller;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import br.edu.ifal.commanage.bo.CompanyBOSale;
+
+import br.edu.ifal.commanage.bo.CompanyBOPurchase;
 import br.edu.ifal.commanage.dao.ProductDAO;
 import br.edu.ifal.commanage.model.Company;
 import br.edu.ifal.commanage.model.Product;
-import br.edu.ifal.commanage.model.Sale;
+import br.edu.ifal.commanage.model.Purchase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,17 +19,17 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class LayoutSalesDialogController implements Initializable {
+public class LayoutPurchaseDialogController implements Initializable {
 	
 	@FXML
 	private ComboBox<Product> comboBoxProducts;
 	@FXML
-	private TextField textFieldQuantitySale;
+	private TextField textFieldQuantityPurchase;
 	@FXML
 	private Button buttonConfirm;
 	
 	private Stage dialogStage;
-	private Sale sale;
+	private Purchase purchase;
 	private List<Product> products;
 	Product product;
 	private ObservableList<Product> observableListProducts;
@@ -55,13 +56,13 @@ public class LayoutSalesDialogController implements Initializable {
 		this.dialogStage = dialogStage;
 	}
 	
-	public void setSale (Sale sale) {
-		this.sale = sale;
+	public void setPurchase (Purchase purchase) {
+		this.purchase = purchase;
 		initializeTextFields();
 	}
 	
 	private void initializeTextFields () {
-		textFieldQuantitySale.setText(Integer.toString(sale.getQuantity()));
+		textFieldQuantityPurchase.setText(Integer.toString(purchase.getQuantity()));
 	}
 	
 	public boolean isButtonConfirmClicked () {
@@ -76,13 +77,13 @@ public class LayoutSalesDialogController implements Initializable {
 	@FXML
 	public void handleButtonConfirm () {
 		if (product != null) {
-			sale.setProductId(product.getId());
-			sale.setQuantity(Integer.parseInt(textFieldQuantitySale.getText()));
+			purchase.setProductId(product.getId());
+			purchase.setQuantity(Integer.parseInt(textFieldQuantityPurchase.getText()));
 			
-			CompanyBOSale companyBOSale = new CompanyBOSale(new Company());
+			CompanyBOPurchase companyBOPurchase = new CompanyBOPurchase(new Company());
 			
 			try {
-				companyBOSale.validateAddSale(sale);
+				companyBOPurchase.validateAddPurchase(purchase);
 				buttonConfirmClicked = true;
 				dialogStage.close();
 			} catch (Exception e) {

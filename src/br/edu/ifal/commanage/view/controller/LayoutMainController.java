@@ -1,15 +1,13 @@
 package br.edu.ifal.commanage.view.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.control.MenuItem;
-import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
-public class LayoutMainController implements Initializable {
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.AnchorPane;
+
+public class LayoutMainController {
 	
 	@FXML
 	private MenuItem menuItemRegistrationEmployees;
@@ -28,32 +26,27 @@ public class LayoutMainController implements Initializable {
 	@FXML
 	private AnchorPane anchorPane;
 	
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		
-	}
-	
 	@FXML
 	public void handleMenuItemRegistrationEmployees () throws IOException {
-		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutEmployees.fxml"));
+		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutEmployee.fxml"));
 		anchorPane.getChildren().setAll(a);
 	}
 	
 	@FXML
 	public void handleMenuItemRegistrationProducts () throws IOException {
-		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutProducts.fxml"));
+		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutProduct.fxml"));
 		anchorPane.getChildren().setAll(a);
 	}
 	
 	@FXML
 	public void handleMenuItemRegistrationPurchases () throws IOException {
-		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutPurchases.fxml"));
+		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutPurchase.fxml"));
 		anchorPane.getChildren().setAll(a);
 	}
 	
 	@FXML
 	public void handleMenuItemRegistrationSales () throws IOException {
-		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutSales.fxml"));
+		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutSale.fxml"));
 		anchorPane.getChildren().setAll(a);
 	}
 	

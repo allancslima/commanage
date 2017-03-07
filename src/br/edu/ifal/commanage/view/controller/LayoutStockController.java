@@ -1,11 +1,12 @@
 package br.edu.ifal.commanage.view.controller;
 
-import java.util.Map;
-import java.util.ResourceBundle;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.ResourceBundle;
+
 import br.edu.ifal.commanage.dao.StockDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
