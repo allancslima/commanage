@@ -15,10 +15,6 @@ public class CompanyBOProduct {
 		this.company = company;
 	}
 	
-	/* public int getProductQuantity (){
-		return company.getProductQuantity();
-	} */
-	
 	public void validateAddProduct (Product product) throws CompanyBOException, SQLException {
 		if (FieldValidation.isValidName(product.getName()) && 
 			FieldValidation.isValidName(product.getCategory()) &&
@@ -38,7 +34,6 @@ public class CompanyBOProduct {
 	}
 	
 	public void removeProduct (Product product) throws SQLException {
-		// return company.removeProduct(productId);
 		company.removeProduct(product.getId());
 	}
 }

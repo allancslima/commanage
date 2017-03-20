@@ -24,13 +24,13 @@
         </rowConstraints>
          <children>
             <Label text="Nome" />
+            <Label text="Categoria" GridPane.rowIndex="1" />
             <Label text="Preço de compra" GridPane.rowIndex="2" />
             <Label text="Preço de venda" GridPane.rowIndex="3" />
             <TextField fx:id="textFieldNameProduct" prefHeight="25.0" prefWidth="169.0" GridPane.columnIndex="1" />
+            <TextField fx:id="textFieldCategoryProduct" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="textFieldPurchasePriceProduct" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="textFieldSalePriceProduct" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label text="Categoria" GridPane.rowIndex="1" />
-            <TextField fx:id="textFieldCategoryProduct" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Group layoutX="126.0" layoutY="135.0">

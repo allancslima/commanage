@@ -80,6 +80,8 @@ public class StockDAO {
 			stmt = con.prepareStatement(sql);
 			
 			stmt.setInt(1, productId);
+			
+			stmt.executeUpdate();
 		} catch (SQLException e) {
 			throw new SQLException("Error while deleting");
 		} finally {

@@ -15,10 +15,6 @@ public class CompanyBOEmployee {
 		this.company = company;
 	}
 	
-	/* public int getEmployeeQuantity () {
-		return company.getEmployeeQuantity();
-	} */
-	
 	public void validateAddEmployee (Employee employee) throws CompanyBOException, SQLException {
 		if (FieldValidation.isValidName(employee.getName()) &&
 			FieldValidation.isValidPhone(employee.getPhone()) &&
@@ -38,7 +34,6 @@ public class CompanyBOEmployee {
 	}
 	
 	public void removeEmployee (Employee employee) throws SQLException {
-		// return company.removeEmployee(employee);
 		company.removeEmployee(employee.getId());
 	}
 }

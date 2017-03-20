@@ -68,4 +68,8 @@ public class Stock {
 		int productQuantity = getProductQuantity(productId);
 		stockDAO.update(productId, productQuantity + quantityToAdd);
 	}
+	
+	public void updateStockForRemovedProduct (int productId) throws SQLException {
+		stockDAO.delete(productId);
+	}
 }

@@ -25,13 +25,13 @@
         </rowConstraints>
          <children>
             <Label text="Nome" />
+            <Label text="Função" GridPane.rowIndex="1" />
             <Label text="Telefone" GridPane.rowIndex="2" />
             <Label text="Email" GridPane.rowIndex="3" />
             <TextField fx:id="textFieldNameEmployee" GridPane.columnIndex="1" />
+            <ComboBox fx:id="comboBoxEmployeeFunctions" onAction="#selectItemEmployeeFunction" prefHeight="25.0" prefWidth="190.0" promptText="Selecione uma função..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="textFieldPhoneEmployee" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="textFieldEmailEmployee" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label text="Função" GridPane.rowIndex="1" />
-            <ComboBox fx:id="comboBoxEmployeeFunctions" onAction="#selectItemEmployeeFunction" prefHeight="25.0" prefWidth="190.0" promptText="Selecione uma função..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Group layoutX="126.0" layoutY="139.0">

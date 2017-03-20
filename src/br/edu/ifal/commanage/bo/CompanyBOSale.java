@@ -14,10 +14,6 @@ public class CompanyBOSale {
 		this.company = company;
 	}
 	
-	/* public int getSaleQuantity(){
-		return company.getSaleQuantity();
-	} */
-	
 	public void validateAddSale (Sale sale) throws Exception {
 		if (sale.getQuantity() > 0)
 			company.addSale(sale);
@@ -26,7 +22,6 @@ public class CompanyBOSale {
 	}
 	
 	public void removeSale (Sale sale) throws SQLException {
-		// return company.removeSale(sale);
 		company.removeSale(sale);
 	}
 }

@@ -14,10 +14,6 @@ public class CompanyBOPurchase {
 		this.company = company;
 	}
 	
-	/* public int getPurchaseQuantity(){
-		return company.getPurchaseQuantity();
-	} */
-	
 	public void validateAddPurchase (Purchase purchase) throws CompanyBOException, SQLException {
 		if (purchase.getProductId() != 0 && purchase.getQuantity() > 0)
 			company.addPurchase(purchase);
@@ -26,7 +22,6 @@ public class CompanyBOPurchase {
 	}
 	
 	public void removePurchase (Purchase purchase) throws SQLException {
-		// return company.removePurchase(purchase);
 		company.removePurchase(purchase);
 	}
 }

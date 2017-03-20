@@ -24,8 +24,8 @@
          <children>
             <Label text="Produto" />
             <Label text="Quantidade" GridPane.rowIndex="1" />
-            <TextField fx:id="textFieldQuantityPurchase" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="comboBoxProducts" onAction="#selectItemComboBoxProducts" prefHeight="25.0" prefWidth="177.0" promptText="Selecione um produto..." GridPane.columnIndex="1" />
+         	<TextField fx:id="textFieldQuantityPurchase" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Group layoutX="126.0" layoutY="130.0">
