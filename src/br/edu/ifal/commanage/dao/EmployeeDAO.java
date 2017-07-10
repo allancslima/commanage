@@ -14,7 +14,7 @@ import br.edu.ifal.commanage.model.Salesperson;
 
 public class EmployeeDAO {
 	
-	public void create (Employee employee) throws SQLException {
+	public void create(Employee employee) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
@@ -35,7 +35,7 @@ public class EmployeeDAO {
 		}
 	}
 	
-	public List<Employee> read () throws SQLException {
+	public List<Employee> read() throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -66,7 +66,7 @@ public class EmployeeDAO {
 		return employees;
 	}
 	
-	public void update (Employee employee) throws SQLException {
+	public void update(Employee employee) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
@@ -88,7 +88,7 @@ public class EmployeeDAO {
 		}
 	}
 	
-	public void delete (int employeeId) throws SQLException {
+	public void delete(int employeeId) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		

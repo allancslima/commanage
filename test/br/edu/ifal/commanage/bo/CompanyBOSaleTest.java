@@ -12,13 +12,13 @@ public class CompanyBOSaleTest extends TestCase {
 	private CompanyBOSale companyBOSale; 
 	
 	@Override
-	protected void setUp () throws Exception {
+	protected void setUp() throws Exception {
 		companyBOSale = new CompanyBOSale(new Company());
 		super.setUp();
 	}
 	
 	@Test
-	public void testShouldNotValidateAddSaleIfIncorrectData () throws Exception {
+	public void testShouldNotValidateAddSaleIfIncorrectData() throws Exception {
 		Product product = new Product("Oracle", "DB", 1, 2);
 		Sale sale = new Sale(product.getId(), 0);
 		
@@ -30,13 +30,12 @@ public class CompanyBOSaleTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldValidateAddSaleIfCorrectData () throws Exception {
+	public void testShouldValidateAddSaleIfCorrectData() throws Exception {
 		Product product = new Product("Oracle", "DB", 1, 2);
 		Sale sale = new Sale(product.getId(), 10);
 		
 		try {
 			companyBOSale.validateAddSale(sale);
-			// assertEquals(1, companyBOSale.getSaleQuantity());
 		} catch (Exception e) {
 			assertEquals("", e.getMessage());
 		}

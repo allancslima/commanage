@@ -10,7 +10,7 @@ public class PurchaseDAOTest extends TestCase {
 	PurchaseDAO purchaseDAO = new PurchaseDAO();
 	
 	@Test
-	public void testShouldCreatePurchase () throws Exception {
+	public void testShouldCreatePurchase() throws Exception {
 		Purchase purchase = new Purchase(1, 10);
 
 		try {
@@ -21,7 +21,7 @@ public class PurchaseDAOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldReadPurchases () throws Exception {
+	public void testShouldReadPurchases() throws Exception {
 		try {
 			assertNotNull(purchaseDAO.read());
 		} catch (Exception e) {
@@ -30,7 +30,7 @@ public class PurchaseDAOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldDeletePurchase () throws Exception {
+	public void testShouldDeletePurchase() throws Exception {
 		try {
 			purchaseDAO.delete(1);
 		} catch (Exception e) {

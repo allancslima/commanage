@@ -12,15 +12,15 @@
         <menus>
           <Menu mnemonicParsing="false" text="Empresa">
             <items>
-              <MenuItem mnemonicParsing="false" text="Alterar dados" />
+              <MenuItem mnemonicParsing="false" text="Alterar dados [TODO]" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Cadastros">
             <items>
               	  <MenuItem fx:id="menuItemRegistrationEmployees" mnemonicParsing="false" onAction="#handleMenuItemRegistrationEmployees" text="Funcionários" />
                   <MenuItem fx:id="menuItemRegistrationProducts" mnemonicParsing="false" onAction="#handleMenuItemRegistrationProducts" text="Produtos" />
-                  <MenuItem fx:id="menuItemRegistrationProviders" mnemonicParsing="false" text="Fornecedores" />
-                  <MenuItem fx:id="menuItemRegistrationClients" mnemonicParsing="false" text="Clientes" />
+                  <MenuItem fx:id="menuItemRegistrationProviders" mnemonicParsing="false" text="Fornecedores [TODO]" />
+                  <MenuItem fx:id="menuItemRegistrationClients" mnemonicParsing="false" text="Clientes [TODO]" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Processos">
@@ -34,8 +34,8 @@
                 <MenuItem fx:id="menuItemStock" mnemonicParsing="false" onAction="#handleMenuItemStock" text="Visualizar" />
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Ajuda" />
-            <Menu mnemonicParsing="false" text="Sair" />
+            <Menu mnemonicParsing="false" text="Ajuda [TODO]" />
+            <Menu mnemonicParsing="false" text="Sair [TODO]" />
         </menus>
       </MenuBar>
       <AnchorPane fx:id="anchorPane" prefHeight="372.0" prefWidth="600.0" />

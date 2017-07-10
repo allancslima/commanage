@@ -10,7 +10,7 @@ public class SaleDAOTest extends TestCase {
 	SaleDAO saleDAO = new SaleDAO();
 	
 	@Test
-	public void testShouldCreateSales () throws Exception {
+	public void testShouldCreateSales() throws Exception {
 		Sale sale = new Sale(1, 10);
 
 		try {
@@ -21,7 +21,7 @@ public class SaleDAOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldReadSales () throws Exception {
+	public void testShouldReadSales() throws Exception {
 		try {
 			assertNotNull(saleDAO.read());
 		} catch (Exception e) {
@@ -30,7 +30,7 @@ public class SaleDAOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldUpdateSale () throws Exception {
+	public void testShouldUpdateSale() throws Exception {
 		Sale sale = new Sale(1, 10);
 		sale.setId(0);
 		
@@ -42,7 +42,7 @@ public class SaleDAOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldDeleteSale () throws Exception {
+	public void testShouldDeleteSale() throws Exception {
 		try {
 			saleDAO.delete(1);
 		} catch (Exception e) {

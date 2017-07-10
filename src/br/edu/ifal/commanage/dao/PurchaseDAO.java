@@ -12,7 +12,7 @@ import br.edu.ifal.commanage.model.Purchase;
 
 public class PurchaseDAO {
 	
-	public void create (Purchase purchase) throws SQLException {
+	public void create(Purchase purchase) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
@@ -31,7 +31,7 @@ public class PurchaseDAO {
 		}
 	}
 	
-	public List<Purchase> read () throws SQLException {
+	public List<Purchase> read() throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -58,7 +58,7 @@ public class PurchaseDAO {
 		return purchases;
 	}
 	
-	public void delete (int purchaseId) throws SQLException {
+	public void delete(int purchaseId) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
@@ -75,7 +75,7 @@ public class PurchaseDAO {
 		}
 	}
 
-	public void productDeleted(int productId) throws SQLException {
+	public void deleteForRemovedProduct(int productId) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		

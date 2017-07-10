@@ -6,16 +6,16 @@ public class Purchase {
 	private int productId; 
 	private int quantity;
 	
-	public Purchase (int productId, int quantity){
+	public Purchase(int productId, int quantity){
 		setProductId(productId);
 		setQuantity(quantity);
 	}
 	
-	public int getId () {
+	public int getId() {
 		return id;
 	}
 	
-	public void setId (int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	
@@ -23,15 +23,15 @@ public class Purchase {
 		return productId;
 	}
 	
-	public void setProductId (int productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 	
-	public int getQuantity () {
+	public int getQuantity() {
 		return quantity;
 	}
  	
-	public void setQuantity (int quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 }

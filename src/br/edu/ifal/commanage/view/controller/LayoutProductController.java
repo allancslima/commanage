@@ -55,7 +55,7 @@ public class LayoutProductController implements Initializable {
 				(observable, oldValue, newValue) -> selectItemTableViewProduct(newValue));
 	}
 	
-	public void loadTableViewProduct () {
+	public void loadTableViewProduct() {
 		tableColumnNameProduct.setCellValueFactory(new PropertyValueFactory<>("name"));
 		tableColumnCategoryProduct.setCellValueFactory(new PropertyValueFactory<>("category"));
 		
@@ -69,7 +69,7 @@ public class LayoutProductController implements Initializable {
 		tableViewProduct.setItems(observableListProduct);
 	}
 	
-	public void selectItemTableViewProduct (Product product) {
+	public void selectItemTableViewProduct(Product product) {
 		if (product != null) {
 			labelProductID.setText(String.valueOf(product.getId()));
 			labelNameProduct.setText(product.getName());
@@ -85,7 +85,7 @@ public class LayoutProductController implements Initializable {
 		}
 	}
 	
-	public boolean showLayoutProductDialog (Product product) throws IOException {
+	public boolean showLayoutProductDialog(Product product) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(LayoutProductDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutProductDialog.fxml"));
 		
@@ -105,7 +105,7 @@ public class LayoutProductController implements Initializable {
 	}
 	
 	@FXML
-	public void handleButtonCreate () throws IOException {
+	public void handleButtonCreate() throws IOException {
 		Product product = new Product("", "", 0, 0);
 		boolean isButtonConfirmClicked = showLayoutProductDialog(product);
 		
@@ -113,7 +113,7 @@ public class LayoutProductController implements Initializable {
 	}
 	
 	@FXML
-	public void handleButtonUpdate () throws IOException {
+	public void handleButtonUpdate() throws IOException {
 		Product product = tableViewProduct.getSelectionModel().getSelectedItem();
 		
 		if (isNullProduct(product)) {
@@ -125,7 +125,7 @@ public class LayoutProductController implements Initializable {
 	}
 	
 	@FXML
-	public void handleButtonDelete () throws SQLException {
+	public void handleButtonDelete() throws SQLException {
 		Product product = tableViewProduct.getSelectionModel().getSelectedItem();
 		
 		if (isNullProduct(product)) {
@@ -137,13 +137,11 @@ public class LayoutProductController implements Initializable {
 		}
 	}
 	
-	public boolean isNullProduct (Product product) {
-		if (product == null)
-			return true;
-		return false;
+	public boolean isNullProduct(Product product) {
+		return (product == null) ? true : false;
 	}
 	
-	public void alert () {
+	public void alert() {
 		Alert alert = new Alert(Alert.AlertType.WARNING);
 		alert.setContentText("Não há produto selecionado!");
 		alert.show();

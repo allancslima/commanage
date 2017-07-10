@@ -12,7 +12,7 @@ import br.edu.ifal.commanage.model.Product;
 
 public class ProductDAO {
 	
-	public void create (Product product) throws SQLException {
+	public void create(Product product) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
@@ -33,7 +33,7 @@ public class ProductDAO {
 		}
 	}
 	
-	public List<Product> read () throws SQLException {
+	public List<Product> read() throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -62,7 +62,7 @@ public class ProductDAO {
 		return products;
 	}
 	
-	public void update (Product product) throws SQLException {
+	public void update(Product product) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt= null;
 		
@@ -84,7 +84,7 @@ public class ProductDAO {
 		}
 	}
 	
-	public void delete (int productId) throws SQLException {
+	public void delete(int productId) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
@@ -102,7 +102,7 @@ public class ProductDAO {
 		}
 	}
 	
-	public Product findById (int productId) throws SQLException {
+	public Product findById(int productId) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;

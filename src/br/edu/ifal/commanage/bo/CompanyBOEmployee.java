@@ -11,29 +11,31 @@ public class CompanyBOEmployee {
 	
 	private Company company;
 	
-	public CompanyBOEmployee (Company company) {
+	public CompanyBOEmployee(Company company) {
 		this.company = company;
 	}
 	
-	public void validateAddEmployee (Employee employee) throws CompanyBOException, SQLException {
+	public void validateAddEmployee(Employee employee) throws CompanyBOException, SQLException {
 		if (FieldValidation.isValidName(employee.getName()) &&
 			FieldValidation.isValidPhone(employee.getPhone()) &&
-			FieldValidation.isValidEmail(employee.getEmail()))
-		   company.addEmployee(employee);
-		else
-		  throw new CompanyBOException("Invalid employee");
+			FieldValidation.isValidEmail(employee.getEmail())) {
+			company.addEmployee(employee);
+		} else {
+			throw new CompanyBOException("Invalid employee");
+		}
 	}
 	
-	public void validateUpdateEmployee (Employee employee) throws CompanyBOException, SQLException {
+	public void validateUpdateEmployee(Employee employee) throws CompanyBOException, SQLException {
 		if (FieldValidation.isValidName(employee.getName()) &&
 			FieldValidation.isValidPhone(employee.getPhone()) &&
-			FieldValidation.isValidEmail(employee.getEmail()))
-		   company.updateEmployee(employee);
-		else
-		  throw new CompanyBOException("Invalid employee");
+			FieldValidation.isValidEmail(employee.getEmail())) {
+			company.updateEmployee(employee);
+		} else {
+			throw new CompanyBOException("Invalid employee");
+		}
 	}
 	
-	public void removeEmployee (Employee employee) throws SQLException {
+	public void removeEmployee(Employee employee) throws SQLException {
 		company.removeEmployee(employee.getId());
 	}
 }

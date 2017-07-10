@@ -55,7 +55,7 @@ public class LayoutEmployeeController implements Initializable {
 				(observable, oldValue, newValue) -> selectItemTableViewEmployee(newValue));
 	}
 	
-	public void loadTableViewEmployee ()  {
+	public void loadTableViewEmployee()  {
 		tableColumnNameEmployee.setCellValueFactory(new PropertyValueFactory<>("name"));
 		tableColumnFunctionEmployee.setCellValueFactory(new PropertyValueFactory<>("function"));
 		
@@ -69,7 +69,7 @@ public class LayoutEmployeeController implements Initializable {
 		tableViewEmployee.setItems(observableListEmployee);
 	}
 
-	public void selectItemTableViewEmployee (Employee employee) {
+	public void selectItemTableViewEmployee(Employee employee) {
 		if (employee != null) {
 			labelEmployeeID.setText(String.valueOf(employee.getId()));
 			labelNameEmployee.setText(employee.getName());
@@ -85,7 +85,7 @@ public class LayoutEmployeeController implements Initializable {
 		}
 	}
 	
-	public boolean showLayoutEmployeeDialog (Employee employee) throws IOException {
+	public boolean showLayoutEmployeeDialog(Employee employee) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(LayoutEmployeeDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutEmployeeDialog.fxml"));
 		
@@ -105,7 +105,7 @@ public class LayoutEmployeeController implements Initializable {
 	}
 	
 	@FXML
-	public void handleButtonCreate () throws IOException {
+	public void handleButtonCreate() throws IOException {
 		Employee employee = null;
 		boolean isButtonConfirmClicked = showLayoutEmployeeDialog(employee);
 		
@@ -113,7 +113,7 @@ public class LayoutEmployeeController implements Initializable {
 	}
 	
 	@FXML
-	public void handleButtonUpdate () throws IOException {
+	public void handleButtonUpdate() throws IOException {
 		Employee employee = tableViewEmployee.getSelectionModel().getSelectedItem();
 		
 		if (isNullEmployee(employee)) {
@@ -125,7 +125,7 @@ public class LayoutEmployeeController implements Initializable {
 	}
 	
 	@FXML
-	public void handleButtonDelete () throws SQLException {
+	public void handleButtonDelete() throws SQLException {
 		Employee employee = tableViewEmployee.getSelectionModel().getSelectedItem();
 		
 		if (isNullEmployee(employee)) {
@@ -137,13 +137,11 @@ public class LayoutEmployeeController implements Initializable {
 		}
 	}
 	
-	public boolean isNullEmployee (Employee employee) {
-		if (employee == null)
-			return true;
-		return false;
+	public boolean isNullEmployee(Employee employee) {
+		return (employee == null) ? true : false;
 	}
 	
-	public void alert () {
+	public void alert() {
 		Alert alert = new Alert(Alert.AlertType.WARNING);
 		alert.setContentText("Não há funcionário selecionado!");
 		alert.show();

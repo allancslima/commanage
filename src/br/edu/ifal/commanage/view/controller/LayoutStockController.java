@@ -35,7 +35,7 @@ public class LayoutStockController implements Initializable {
 		loadTableViewStock();
 	}
 	
-	public void loadTableViewStock () {
+	public void loadTableViewStock() {
 		tableColumnProductName.setCellValueFactory(new PropertyValueFactory<>("productId"));
 		tableColumnProductQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 		
@@ -59,16 +59,16 @@ public class LayoutStockController implements Initializable {
 		private int productId;
 		private int quantity;
 		
-		StockItem (int productId, int quantity) {
+		StockItem(int productId, int quantity) {
 			this.productId = productId;
 			this.quantity = quantity;
 		}
 		
-		public int getProductId () {
+		public int getProductId() {
 			return productId;
 		}
 		
-		public int getQuantity () {
+		public int getQuantity() {
 			return quantity;
 		}
 	}

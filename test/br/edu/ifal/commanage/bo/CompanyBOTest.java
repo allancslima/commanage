@@ -10,13 +10,13 @@ public class CompanyBOTest extends TestCase {
 	private CompanyBO companyBO;
 	
 	@Override
-	protected void setUp () throws Exception {
+	protected void setUp() throws Exception {
 		companyBO = new CompanyBO(new Company());
 		super.setUp();
 	}
 	
 	@Test
-	public void testShouldNotValidateSetCompanyName () throws Exception {
+	public void testShouldNotValidateSetCompanyName() throws Exception {
 		try {
 			companyBO.validateSetCompanyName("oracle");
 			assertEquals("", companyBO.getName());
@@ -26,7 +26,7 @@ public class CompanyBOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldValidateSetCompanyName () throws Exception {
+	public void testShouldValidateSetCompanyName() throws Exception {
 		try {
 			companyBO.validateSetCompanyName("Oracle");
 			assertEquals("Oracle", companyBO.getName());
@@ -36,7 +36,7 @@ public class CompanyBOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldNotValidateSetCompanyCnpj () throws Exception {
+	public void testShouldNotValidateSetCompanyCnpj() throws Exception {
 		try {
 			companyBO.validateSetCompanyCnpj("11111111111111");
 			assertEquals("", companyBO.getCnpj());
@@ -46,7 +46,7 @@ public class CompanyBOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldValidateSetCompanyCnpj () throws Exception {
+	public void testShouldValidateSetCompanyCnpj() throws Exception {
 		try {
 			companyBO.validateSetCompanyCnpj("11.111.111/1111.11");
 			assertEquals("11.111.111/1111.11", companyBO.getCnpj());
@@ -56,7 +56,7 @@ public class CompanyBOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldNotValidateSetCompanyPhone () throws Exception {
+	public void testShouldNotValidateSetCompanyPhone() throws Exception {
 		try {
 			companyBO.validateSetCompanyPhone("82999999999");
 			assertEquals("", companyBO.getPhone());
@@ -66,7 +66,7 @@ public class CompanyBOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldValidateSetCompanyPhone () throws Exception {
+	public void testShouldValidateSetCompanyPhone() throws Exception {
 		try {
 			companyBO.validateSetCompanyPhone("(82)99999-9999");
 			assertEquals("(82)99999-9999", companyBO.getPhone());

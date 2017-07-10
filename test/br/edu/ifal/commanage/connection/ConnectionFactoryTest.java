@@ -9,7 +9,7 @@ import junit.framework.TestCase;
 public class ConnectionFactoryTest extends TestCase {
 	
 	@Test
-	public void testShouldConnectToDatabase () throws Exception {
+	public void testShouldConnectToDatabase() throws Exception {
 		try {
 			Connection con = ConnectionFactory.getConnection();
 			assertNotNull(con);
@@ -19,7 +19,7 @@ public class ConnectionFactoryTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldCloseConnection () throws Exception {
+	public void testShouldCloseConnection() throws Exception {
 		try {
 			Connection con = ConnectionFactory.getConnection();
 			assertNotNull(con);

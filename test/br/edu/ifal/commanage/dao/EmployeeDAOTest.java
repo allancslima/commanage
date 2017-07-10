@@ -12,7 +12,7 @@ public class EmployeeDAOTest extends TestCase {
 	EmployeeDAO employeeDAO = new EmployeeDAO();
 	
 	@Test
-	public void testShouldCreateEmployee () throws Exception {
+	public void testShouldCreateEmployee() throws Exception {
 		Employee employee = new Manager("Gosling", "(99)99999-9999", "gosling@email.com");
 
 		try {
@@ -23,7 +23,7 @@ public class EmployeeDAOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldReadEmployees () throws Exception {
+	public void testShouldReadEmployees() throws Exception {
 		try {
 			assertNotNull(employeeDAO.read());
 		} catch (Exception e) {
@@ -32,7 +32,7 @@ public class EmployeeDAOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldUpdateEmployee () throws Exception {
+	public void testShouldUpdateEmployee() throws Exception {
 		Employee employee = new Salesperson("James Gosling", "(99)99999-9999", "gosling@email.com");
 		employee.setId(1);
 		
@@ -44,7 +44,7 @@ public class EmployeeDAOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldDeleteEmployee () throws Exception {
+	public void testShouldDeleteEmployee() throws Exception {
 		try {
 			employeeDAO.delete(1);
 		} catch (Exception e) {

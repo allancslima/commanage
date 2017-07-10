@@ -46,42 +46,43 @@ public class LayoutEmployeeDialogController implements Initializable {
 		comboBoxEmployeeFunctions.setItems(observableListEmployeeFunctions);
 	}
 	
-	public Stage getDialogStage () {
+	public Stage getDialogStage() {
 		return dialogStage;
 	}
 	
-	public void setDialogStage (Stage dialogStage) {
+	public void setDialogStage(Stage dialogStage) {
 		this.dialogStage = dialogStage;
 	}
 	
-	public void setEmployee (Employee employee) {
+	public void setEmployee(Employee employee) {
 		if (employee != null) {
 			this.employee = employee;
 			initializeTextFields();
 		}
 	}
 	
-	public void initializeTextFields () {
+	public void initializeTextFields() {
 		textFieldNameEmployee.setText(employee.getName());
 		comboBoxEmployeeFunctions.setValue(employee.getFunction());
 		textFieldPhoneEmployee.setText(employee.getPhone());
 		textFieldEmailEmployee.setText(employee.getEmail());
 	}
 	
-	public boolean isButtonConfirmClicked () {
+	public boolean isButtonConfirmClicked() {
 		return buttonConfirmClicked;
 	}
 
 	@FXML
-	public void selectItemEmployeeFunction () {
-		if (comboBoxEmployeeFunctions.getSelectionModel().getSelectedItem() == "Gerente")
+	public void selectItemEmployeeFunction() {
+		if (comboBoxEmployeeFunctions.getSelectionModel().getSelectedItem() == "Gerente") {
 			employee = new Manager("", "", "");
-		else
+		} else {
 			employee = new Salesperson("", "", "");
+		}
 	}
 	
 	@FXML
-	public void handleButtonConfirm () {
+	public void handleButtonConfirm() {
 		CompanyBOEmployee companyBOEmployee = new CompanyBOEmployee(new Company());
 		
 		try {
@@ -90,10 +91,11 @@ public class LayoutEmployeeDialogController implements Initializable {
 				employee.setPhone(textFieldPhoneEmployee.getText());
 				employee.setEmail(textFieldEmailEmployee.getText());
 				
-				if (isNewEmployee(employee))
+				if (isNewEmployee(employee)) {
 					companyBOEmployee.validateAddEmployee(employee);
-				else
+				} else {
 					companyBOEmployee.validateUpdateEmployee(employee);
+				}
 				
 				buttonConfirmClicked = true;
 				dialogStage.close();
@@ -105,18 +107,16 @@ public class LayoutEmployeeDialogController implements Initializable {
 		}
 	}
 	
-	public boolean isNewEmployee (Employee employee) {
-		if (employee.getId() == 0)
-			return true;
-		return false;
+	public boolean isNewEmployee(Employee employee) {
+		return (employee.getId() == 0) ? true : false;
 	}
 	
 	@FXML
-	public void handleButtonCancel () {
+	public void handleButtonCancel() {
 		dialogStage.close();
 	}
 	
-	public void alert () {
+	public void alert() {
 		Alert alert = new Alert(Alert.AlertType.WARNING);
 		alert.setContentText("Não há função selecionada!");
 		alert.show();

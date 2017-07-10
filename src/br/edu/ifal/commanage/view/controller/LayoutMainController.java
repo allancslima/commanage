@@ -27,31 +27,31 @@ public class LayoutMainController {
 	private AnchorPane anchorPane;
 	
 	@FXML
-	public void handleMenuItemRegistrationEmployees () throws IOException {
+	public void handleMenuItemRegistrationEmployees() throws IOException {
 		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutEmployee.fxml"));
 		anchorPane.getChildren().setAll(a);
 	}
 	
 	@FXML
-	public void handleMenuItemRegistrationProducts () throws IOException {
+	public void handleMenuItemRegistrationProducts() throws IOException {
 		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutProduct.fxml"));
 		anchorPane.getChildren().setAll(a);
 	}
 	
 	@FXML
-	public void handleMenuItemRegistrationPurchases () throws IOException {
+	public void handleMenuItemRegistrationPurchases() throws IOException {
 		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutPurchase.fxml"));
 		anchorPane.getChildren().setAll(a);
 	}
 	
 	@FXML
-	public void handleMenuItemRegistrationSales () throws IOException {
+	public void handleMenuItemRegistrationSales() throws IOException {
 		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutSale.fxml"));
 		anchorPane.getChildren().setAll(a);
 	}
 	
 	@FXML
-	public void handleMenuItemStock () throws IOException {
+	public void handleMenuItemStock() throws IOException {
 		AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/br/edu/ifal/commanage/view/layout/LayoutStock.fxml"));
 		anchorPane.getChildren().setAll(a);
 	}

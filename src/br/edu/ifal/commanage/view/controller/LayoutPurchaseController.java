@@ -52,7 +52,7 @@ public class LayoutPurchaseController implements Initializable {
 				(observable, oldValue, newValue) -> selectItemTableViewPurchases(newValue));
 	}
 	
-	public void loadTableViewPurchases () {
+	public void loadTableViewPurchases() {
 		tableColumnNameProductPurchase.setCellValueFactory(new PropertyValueFactory<>("productId"));
 		tableColumnQuantityPurchase.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 		
@@ -66,7 +66,7 @@ public class LayoutPurchaseController implements Initializable {
 		tableViewPurchase.setItems(observableListPurchases);
 	}
 	
-	public void selectItemTableViewPurchases (Purchase purchase) {
+	public void selectItemTableViewPurchases(Purchase purchase) {
 		if (purchase != null) {
 			labelPurchaseID.setText(String.valueOf(purchase.getId()));
 			
@@ -86,7 +86,7 @@ public class LayoutPurchaseController implements Initializable {
 		}
 	}
 	
-	public boolean showLayoutPurchasesDialog (Purchase purchase) throws IOException {
+	public boolean showLayoutPurchasesDialog(Purchase purchase) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(LayoutPurchaseDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutPurchaseDialog.fxml"));
 		
@@ -106,7 +106,7 @@ public class LayoutPurchaseController implements Initializable {
 	}
 	
 	@FXML
-	public void handleButtonCreate () throws IOException {
+	public void handleButtonCreate() throws IOException {
 		Purchase purchase = new Purchase(0, 0);
 		boolean isButtonConfirmClicked = showLayoutPurchasesDialog(purchase);
 		
@@ -114,7 +114,7 @@ public class LayoutPurchaseController implements Initializable {
 	}
 	
 	@FXML
-	public void handleButtonDelete () throws SQLException {
+	public void handleButtonDelete() throws SQLException {
 		Purchase purchase = tableViewPurchase.getSelectionModel().getSelectedItem();
 		
 		if (isNullPurchase(purchase)) {
@@ -126,13 +126,11 @@ public class LayoutPurchaseController implements Initializable {
 		}
 	}
 	
-	public boolean isNullPurchase (Purchase purchase) {
-		if (purchase == null)
-			return true;
-		return false;
+	public boolean isNullPurchase(Purchase purchase) {
+		return (purchase == null) ? true : false;
 	}
 	
-	public void alert () {
+	public void alert() {
 		Alert alert = new Alert(Alert.AlertType.WARNING);
 		alert.setContentText("Não há compra selecionado!");
 		alert.show();

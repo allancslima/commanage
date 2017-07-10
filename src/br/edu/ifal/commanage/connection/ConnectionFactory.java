@@ -12,7 +12,7 @@ public class ConnectionFactory {
 	private static final String USER = "root";
 	private static final String PASS = "";
 	
-	public static Connection getConnection () throws SQLException {
+	public static Connection getConnection() throws SQLException {
 		try {
 			Connection con = DriverManager.getConnection(URL, USER, PASS);
 			return con;
@@ -21,7 +21,7 @@ public class ConnectionFactory {
 		}
 	}
 	
-	public static void closeConnection (Connection con) throws SQLException {
+	public static void closeConnection(Connection con) throws SQLException {
 		try {
 			if (con != null)
 				con.close();
@@ -30,7 +30,7 @@ public class ConnectionFactory {
 		}
 	}
 	
-	public static void closeConnection (Connection con, PreparedStatement stmt) throws SQLException {
+	public static void closeConnection(Connection con, PreparedStatement stmt) throws SQLException {
 		closeConnection(con);
 		
 		try {
@@ -41,7 +41,7 @@ public class ConnectionFactory {
 		}
 	}
 	
-	public static void closeConnection (Connection con, PreparedStatement stmt, ResultSet rs) throws SQLException {
+	public static void closeConnection(Connection con, PreparedStatement stmt, ResultSet rs) throws SQLException {
 		closeConnection(con, stmt);
 		
 		try {

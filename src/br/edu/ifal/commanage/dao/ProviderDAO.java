@@ -12,7 +12,7 @@ import br.edu.ifal.commanage.model.Provider;
 
 public class ProviderDAO {
 	
-	public void create (Provider provider) throws SQLException {
+	public void create(Provider provider) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
@@ -32,7 +32,7 @@ public class ProviderDAO {
 		}
 	}
 	
-	public List<Provider> read () throws SQLException {
+	public List<Provider> read() throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -60,7 +60,7 @@ public class ProviderDAO {
 		return providers;
 	}
 	
-	public void update (Provider provider) throws SQLException {
+	public void update(Provider provider) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt= null;
 		
@@ -81,7 +81,7 @@ public class ProviderDAO {
 		}
 	}
 	
-	public void delete (int productId) throws SQLException {
+	public void delete(int productId) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		

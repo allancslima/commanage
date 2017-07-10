@@ -12,29 +12,31 @@ public class CompanyBOProvider {
 	
 	private Company company;
 	
-	public CompanyBOProvider (Company company) {
+	public CompanyBOProvider(Company company) {
 		this.company = company;
 	}
 	
-	public void validateAddProvider (Provider provider) throws CompanyBOException, SQLException {
+	public void validateAddProvider(Provider provider) throws CompanyBOException, SQLException {
 		if (FieldValidation.isValidName(provider.getName()) &&
 			FieldValidation.isValidPhone(provider.getPhone()) &&
-			FieldValidation.isValidEmail(provider.getEmail()))
-		   company.addProvider(provider);
-		else
-		  throw new CompanyBOException("Invalid provider");
+			FieldValidation.isValidEmail(provider.getEmail())) {
+			company.addProvider(provider);
+		} else {
+			throw new CompanyBOException("Invalid provider");
+		}
 	}
 	
-	public void validateUpdateEmployee (Employee employee) throws CompanyBOException, SQLException {
+	public void validateUpdateEmployee(Employee employee) throws CompanyBOException, SQLException {
 		if (FieldValidation.isValidName(employee.getName()) &&
 			FieldValidation.isValidPhone(employee.getPhone()) &&
-			FieldValidation.isValidEmail(employee.getEmail()))
-		   company.updateEmployee(employee);
-		else
-		  throw new CompanyBOException("Invalid employee");
+			FieldValidation.isValidEmail(employee.getEmail())) {
+			company.updateEmployee(employee);
+		} else {
+			throw new CompanyBOException("Invalid employee");
+		}
 	}
 	
-	public void removeEmployee (Employee employee) throws SQLException {
+	public void removeEmployee(Employee employee) throws SQLException {
 		company.removeEmployee(employee.getId());
 	}
 }

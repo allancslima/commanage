@@ -12,17 +12,15 @@ public class Stock {
 	private Map<Integer, Integer> mapProducts = new HashMap<>();
 	private StockDAO stockDAO = new StockDAO();
 	
-	private void loadMapProducts () throws SQLException {
+	private void loadMapProducts() throws SQLException {
 		mapProducts = stockDAO.read();
 	}
 	
-	public int getProductQuantity (int productId) {
-		if (mapProducts.get(productId) == null)
-			return 0;
-		return mapProducts.get(productId);
+	public int getProductQuantity(int productId) {
+		return (mapProducts.get(productId) == null) ? 0 : mapProducts.get(productId);
 	}
 	
-	public void updateStockForAddedProccess (Purchase purchase) throws SQLException {
+	public void updateStockForAddedProccess(Purchase purchase) throws SQLException {
 		loadMapProducts();
 		
 		int productId = purchase.getProductId();
@@ -35,7 +33,7 @@ public class Stock {
 		stockDAO.update(productId, productQuantity + quantityToAdd);
 	}
 	
-	public void updateStockForRemovedProcess (Purchase purchase) throws SQLException {
+	public void updateStockForRemovedProcess(Purchase purchase) throws SQLException {
 		loadMapProducts();
 		
 		int productId = purchase.getProductId();
@@ -45,7 +43,7 @@ public class Stock {
 		stockDAO.update(productId, productQuantity - quantityToRemove);
 	}
 	
-	public void updateStockForAddedProccess (Sale sale) throws StockException, SQLException {
+	public void updateStockForAddedProccess(Sale sale) throws StockException, SQLException {
 		loadMapProducts();
 		
 		int productId = sale.getProductId();
@@ -59,7 +57,7 @@ public class Stock {
 		}
 	}
 	
-	public void updateStockForRemovedProcess (Sale sale) throws SQLException {
+	public void updateStockForRemovedProcess(Sale sale) throws SQLException {
 		loadMapProducts();
 		
 		int productId = sale.getProductId();
@@ -69,7 +67,7 @@ public class Stock {
 		stockDAO.update(productId, productQuantity + quantityToAdd);
 	}
 	
-	public void updateStockForRemovedProduct (int productId) throws SQLException {
+	public void updateStockForRemovedProduct(int productId) throws SQLException {
 		stockDAO.delete(productId);
 	}
 }

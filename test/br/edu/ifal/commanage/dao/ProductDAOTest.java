@@ -10,7 +10,7 @@ public class ProductDAOTest extends TestCase {
 	ProductDAO productDAO = new ProductDAO();
 	
 	@Test
-	public void testShouldCreateEmployee () throws Exception {
+	public void testShouldCreateEmployee() throws Exception {
 		Product product = new Product("Oracle", "DB", 10.0, 15.0);
 
 		try {
@@ -21,7 +21,7 @@ public class ProductDAOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldReadEmployees () throws Exception {
+	public void testShouldReadEmployees() throws Exception {
 		try {
 			assertNotNull(productDAO.read());
 		} catch (Exception e) {
@@ -30,7 +30,7 @@ public class ProductDAOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldUpdateEmployee () throws Exception {
+	public void testShouldUpdateEmployee() throws Exception {
 		Product product = new Product("Oracle", "DB", 10.0, 14.0);
 		product.setId(1);
 		
@@ -42,7 +42,7 @@ public class ProductDAOTest extends TestCase {
 	}
 	
 	@Test
-	public void testShouldDeleteEmployee () throws Exception {
+	public void testShouldDeleteEmployee() throws Exception {
 		try {
 			productDAO.delete(2);
 		} catch (Exception e) {

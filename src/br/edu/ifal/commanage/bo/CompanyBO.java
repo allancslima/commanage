@@ -8,40 +8,43 @@ public class CompanyBO {
 	
 	private Company company;
 	
-	public CompanyBO (Company company) {
+	public CompanyBO(Company company) {
 		this.company = company;
 	}
 	
-	public String getName () {
+	public String getName() {
 		return company.getName();
 	}
 	
-	public void validateSetCompanyName (String name) throws CompanyBOException {
-		if (FieldValidation.isValidName(name))
+	public void validateSetCompanyName(String name) throws CompanyBOException {
+		if (FieldValidation.isValidName(name)) {
 			company.setName(name);
-		else
+		} else {
 			throw new CompanyBOException("Invalid name");
+		}
 	}
 	
-	public String getCnpj () {
+	public String getCnpj() {
 		return company.getCnpj();
 	}
 	
-	public void validateSetCompanyCnpj (String cnpj) throws CompanyBOException {
-		if (FieldValidation.isValidCnpj(cnpj))
+	public void validateSetCompanyCnpj(String cnpj) throws CompanyBOException {
+		if (FieldValidation.isValidCnpj(cnpj)) {
 			company.setCnpj(cnpj);
-		else
+		} else {
 			throw new CompanyBOException("Invalid cnpj");
+		}
 	}
 	
-	public String getPhone () {
+	public String getPhone() {
 		return company.getPhone();
 	}
 	
-	public void validateSetCompanyPhone (String phone) throws CompanyBOException {
-		if (FieldValidation.isValidPhone(phone))
+	public void validateSetCompanyPhone(String phone) throws CompanyBOException {
+		if (FieldValidation.isValidPhone(phone)) {
 			company.setPhone(phone);
-		else
+		} else {
 			throw new CompanyBOException("Invalid phone");
+		}
 	}
 }

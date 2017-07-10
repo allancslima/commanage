@@ -48,34 +48,34 @@ public class LayoutSaleDialogController implements Initializable {
 		}
 	}
 	
-	public Stage getDialogStage () {
+	public Stage getDialogStage() {
 		return dialogStage;
 	}
 	
-	public void setDialogStage (Stage dialogStage) {
+	public void setDialogStage(Stage dialogStage) {
 		this.dialogStage = dialogStage;
 	}
 	
-	public void setSale (Sale sale) {
+	public void setSale(Sale sale) {
 		this.sale = sale;
 		initializeTextFields();
 	}
 	
-	private void initializeTextFields () {
+	private void initializeTextFields() {
 		textFieldQuantitySale.setText(Integer.toString(sale.getQuantity()));
 	}
 	
-	public boolean isButtonConfirmClicked () {
+	public boolean isButtonConfirmClicked() {
 		return buttonConfirmClicked;
 	}
 	
 	@FXML
-	public void selectItemComboBoxProducts () {
+	public void selectItemComboBoxProducts() {
 		product = comboBoxProducts.getSelectionModel().getSelectedItem();
 	}
 	
 	@FXML
-	public void handleButtonConfirm () {
+	public void handleButtonConfirm() {
 		if (product != null) {
 			sale.setProductId(product.getId());
 			sale.setQuantity(Integer.parseInt(textFieldQuantitySale.getText()));
@@ -97,7 +97,7 @@ public class LayoutSaleDialogController implements Initializable {
 	}
 	
 	@FXML
-	public void handleButtonCancel () {
+	public void handleButtonCancels() {
 		dialogStage.close();
 	}
 }

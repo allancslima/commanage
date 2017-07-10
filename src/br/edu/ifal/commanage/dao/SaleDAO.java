@@ -12,7 +12,7 @@ import br.edu.ifal.commanage.model.Sale;
 
 public class SaleDAO {
 	
-	public void create (Sale sale) throws SQLException {
+	public void create(Sale sale) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
@@ -31,7 +31,7 @@ public class SaleDAO {
 		}
 	}
 	
-	public List<Sale> read () throws SQLException {
+	public List<Sale> read() throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -58,7 +58,7 @@ public class SaleDAO {
 		return sales;
 	}
 	
-	public void update (Sale sale) throws SQLException {
+	public void update(Sale sale) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt= null;
 		
@@ -78,7 +78,7 @@ public class SaleDAO {
 		}
 	}
 	
-	public void delete (int saleId) throws SQLException {
+	public void delete(int saleId) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
@@ -96,7 +96,7 @@ public class SaleDAO {
 		}
 	}
 	
-	public void productDeleted(int productId) throws SQLException {
+	public void deleteForRemovedProduct(int productId) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		

@@ -52,7 +52,7 @@ public class LayoutSaleController implements Initializable {
 				(observable, oldValue, newValue) -> selectItemTableViewSales(newValue));
 	}
 	
-	public void loadTableViewSales () {
+	public void loadTableViewSales() {
 		tableColumnNameProductSale.setCellValueFactory(new PropertyValueFactory<>("productId"));
 		tableColumnQuantitySale.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 		
@@ -66,7 +66,7 @@ public class LayoutSaleController implements Initializable {
 		tableViewSale.setItems(observableListSale);
 	}
 	
-	public void selectItemTableViewSales (Sale sale) {
+	public void selectItemTableViewSales(Sale sale) {
 		if (sale != null) {
 			labelSaleID.setText(String.valueOf(sale.getId()));
 			
@@ -86,7 +86,7 @@ public class LayoutSaleController implements Initializable {
 		}
 	}
 	
-	public boolean showLayoutSalesDialog (Sale sale) throws IOException {
+	public boolean showLayoutSalesDialog(Sale sale) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(LayoutSaleDialogController.class.getResource("/br/edu/ifal/commanage/view/layout/LayoutSaleDialog.fxml"));
 		
@@ -106,7 +106,7 @@ public class LayoutSaleController implements Initializable {
 	}
 	
 	@FXML
-	public void handleButtonCreate () throws IOException {
+	public void handleButtonCreate() throws IOException {
 		Sale sale = new Sale(0, 0);
 		boolean isButtonConfirmClicked = showLayoutSalesDialog(sale);
 		
@@ -114,7 +114,7 @@ public class LayoutSaleController implements Initializable {
 	}
 	
 	@FXML
-	public void handleButtonDelete () throws SQLException {
+	public void handleButtonDelete() throws SQLException {
 		Sale sale = tableViewSale.getSelectionModel().getSelectedItem();
 		
 		if (isNullSale(sale)) {
@@ -126,13 +126,11 @@ public class LayoutSaleController implements Initializable {
 		}
 	}
 	
-	public boolean isNullSale (Sale sale) {
-		if (sale == null)
-			return true;
-		return false;
+	public boolean isNullSale(Sale sale) {
+		return (sale == null) ? true : false;
 	}
 	
-	public void alert () {
+	public void alert() {
 		Alert alert = new Alert(Alert.AlertType.WARNING);
 		alert.setContentText("Não há venda selecionado!");
 		alert.show();

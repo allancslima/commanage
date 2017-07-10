@@ -22,69 +22,69 @@ public class Company {
 	
 	private Stock stock = new Stock();
 	
-	public String getName () {
+	public String getName() {
 		return name;
 	}
 	
-	public void setName (String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	
-	public String getCnpj () {
+	public String getCnpj() {
 		return cnpj;
 	}
 	
-	public void setCnpj (String cnpj) {
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 	
-	public String getPhone () {
+	public String getPhone() {
 		return phone;
 	}
 	
-	public void setPhone (String phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	
-	public void addEmployee (Employee employee) throws SQLException {
+	public void addEmployee(Employee employee) throws SQLException {
 		employeeDAO.create(employee);
 	}
 	
-	public void updateEmployee (Employee employee) throws SQLException {
+	public void updateEmployee(Employee employee) throws SQLException {
 		employeeDAO.update(employee);
 	}
 	
-	public void removeEmployee (int employeeId) throws SQLException {
+	public void removeEmployee(int employeeId) throws SQLException {
 		employeeDAO.delete(employeeId);
 	}
 	
-	public void addProduct (Product product) throws SQLException {
+	public void addProduct(Product product) throws SQLException {
 		productDAO.create(product);
 	}
 	
-	public void updateProduct (Product product) throws SQLException {
+	public void updateProduct(Product product) throws SQLException {
 		productDAO.update(product);
 	}
 	
-	public void removeProduct (int productId) throws SQLException {
+	public void removeProduct(int productId) throws SQLException {
 		productDAO.delete(productId);
 		
-		purchaseDAO.productDeleted(productId);
-		saleDAO.productDeleted(productId);
+		purchaseDAO.deleteForRemovedProduct(productId);
+		saleDAO.deleteForRemovedProduct(productId);
 		stock.updateStockForRemovedProduct(productId);
 	}
 	
-	public void addPurchase (Purchase purchase) throws SQLException {
+	public void addPurchase(Purchase purchase) throws SQLException {
 		purchaseDAO.create(purchase);
 		stock.updateStockForAddedProccess(purchase);
 	}
 	
-	public void removePurchase (Purchase purchase) throws SQLException {
+	public void removePurchase(Purchase purchase) throws SQLException {
 		purchaseDAO.delete(purchase.getId());
 		stock.updateStockForRemovedProcess(purchase);
 	}
 
-	public void addSale (Sale sale) throws StockException, SQLException {
+	public void addSale(Sale sale) throws StockException, SQLException {
 		try {
 			stock.updateStockForAddedProccess(sale);
 			saleDAO.create(sale);
@@ -93,20 +93,20 @@ public class Company {
 		}
 	}
 	
-	public void removeSale (Sale sale) throws SQLException {
+	public void removeSale(Sale sale) throws SQLException {
 		saleDAO.delete(sale.getId());
 		stock.updateStockForRemovedProcess(sale);
 	}
 	
-	public void addProvider (Provider provider) throws SQLException {
+	public void addProvider(Provider provider) throws SQLException {
 		providerDAO.create(provider);
 	}
 	
-	public void updateProvider (Provider provider) throws SQLException {
+	public void updateProvider(Provider provider) throws SQLException {
 		providerDAO.update(provider);
 	}
 	
-	public void removeProvider (int providerId) throws SQLException {
+	public void removeProvider(int providerId) throws SQLException {
 		providerDAO.delete(providerId);
 	}
 }

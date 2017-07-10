@@ -10,18 +10,19 @@ public class CompanyBOSale {
 	
 	private Company company;
 	
-	public CompanyBOSale (Company company) {
+	public CompanyBOSale(Company company) {
 		this.company = company;
 	}
 	
-	public void validateAddSale (Sale sale) throws Exception {
-		if (sale.getQuantity() > 0)
+	public void validateAddSale(Sale sale) throws Exception {
+		if (sale.getQuantity() > 0) {
 			company.addSale(sale);
-		else
+		} else {
 			throw new CompanyBOException("Invalid sale");
+		}
 	}
 	
-	public void removeSale (Sale sale) throws SQLException {
+	public void removeSale(Sale sale) throws SQLException {
 		company.removeSale(sale);
 	}
 }

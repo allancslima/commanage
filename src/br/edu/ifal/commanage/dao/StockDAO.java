@@ -11,7 +11,7 @@ import br.edu.ifal.commanage.connection.ConnectionFactory;
 
 public class StockDAO {
 	
-	public void create (int productId, int quantity) throws SQLException {
+	public void create(int productId, int quantity) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
@@ -30,7 +30,7 @@ public class StockDAO {
 		}
 	}
 	
-	public Map<Integer, Integer> read () throws SQLException {
+	public Map<Integer, Integer> read() throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -52,7 +52,7 @@ public class StockDAO {
 		return mapProducts;
 	}
 	
-	public void update (int productId, int quantity) throws SQLException {
+	public void update(int productId, int quantity) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
@@ -71,7 +71,7 @@ public class StockDAO {
 		}
 	}
 	
-	public void delete (int productId) throws SQLException {
+	public void delete(int productId) throws SQLException {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		
