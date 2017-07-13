@@ -97,7 +97,7 @@ public class LayoutSaleDialogController implements Initializable {
 	}
 	
 	@FXML
-	public void handleButtonCancels() {
+	public void handleButtonCancel() {
 		dialogStage.close();
 	}
 }

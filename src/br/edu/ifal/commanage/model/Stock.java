@@ -16,8 +16,12 @@ public class Stock {
 		mapProducts = stockDAO.read();
 	}
 	
+	public boolean isOutOfStock(int productId) {
+		return (mapProducts.get(productId) == null) ? true : false;
+	}
+	
 	public int getProductQuantity(int productId) {
-		return (mapProducts.get(productId) == null) ? 0 : mapProducts.get(productId);
+		return isOutOfStock(productId) ? 0 : mapProducts.get(productId);
 	}
 	
 	public void updateStockForAddedProccess(Purchase purchase) throws SQLException {
@@ -26,7 +30,7 @@ public class Stock {
 		int productId = purchase.getProductId();
 		int quantityToAdd = purchase.getQuantity();
 		
-		if (getProductQuantity(productId) == 0) {
+		if (isOutOfStock(purchase.getProductId())) {
 			stockDAO.create(productId, quantityToAdd);
 		}
 		int productQuantity = getProductQuantity(productId);
